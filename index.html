@@ -307,12 +307,13 @@
 
                 <script>
                     const landWeapons = [
-                        { name: "M1A2 Abrams Main Battle Tank", desc: "A seventy-ton apex predator forged of advanced steel and depleted uranium armor. It dominates the scarred landscape with devastating kinetic fury, possessing an impenetrable, roaring resolve that breaks the enemy's spirit before the first shell even lands.", imgUrl: "https://image.pollinations.ai/prompt/M1A2%20Abrams%20Main%20Battle%20Tank%20realistic%20military%20photography%20desert?width=800&height=450&nologo=true" },
-                        { name: "M2A4 Bradley Infantry Fighting Vehicle", desc: "The mechanized vanguard of the ground assault. It ferries combat-hardened warriors through the deafening tempest of enemy fire, while simultaneously unleashing its own blistering storm of guided vengeance to carve a path forward.", imgUrl: "https://image.pollinations.ai/prompt/M2A4%20Bradley%20Infantry%20Fighting%20Vehicle%20military%20combat%20photography?width=800&height=450&nologo=true" },
-                        { name: "M142 HIMARS Rocket Artillery", desc: "The wrath of the modern gods, delivered from miles beyond the horizon. A mobile, fleeting maestro of destruction that rains pinpoint precision and explosive chaos upon the heads of the unsuspecting, turning grid coordinates into craters.", imgUrl: "https://image.pollinations.ai/prompt/M142%20HIMARS%20Rocket%20Artillery%20firing%20realistic?width=800&height=450&nologo=true" },
-                        { name: "Leopard 2A7V Tank", desc: "The pinnacle of European heavy armor, combining an unyielding hull with a lethal 120mm smoothbore gun designed to violently dismantle any adversary unfortunate enough to enter its optical sights.", imgUrl: "https://image.pollinations.ai/prompt/Leopard%202A7V%20Tank%20realistic%20military%20photography?width=800&height=450&nologo=true" },
-                        { name: "Patriot MIM-104 Missile System", desc: "A hyper-vigilant sentinel standing guard against the falling sky. It sweeps the heavens with invisible, probing radar eyes to intercept and violently shatter incoming supersonic doom long before it can scorch the earth below.", imgUrl: "https://image.pollinations.ai/prompt/Patriot%20MIM-104%20Missile%20System%20launching%20realistic?width=800&height=450&nologo=true" }
+                        { name: "Panther KF51 Main Battle Tank", origin: "Germany", year: "2022", desc: "An apex predator of the modern battlefield, discarding the bloated mass of yesteryear for hyper-lethal algorithmic targeting and an autoloading 130mm cannon that reduces advanced enemy armor to smoldering kinetic ruin.", imgUrl: "1.jpg" },
+                        { name: "T-14 Armata", origin: "Russia", year: "2015", desc: "A radical departure from conventional armored doctrine, featuring a completely unmanned turret and an impenetrable armored capsule that preserves the human operators while unleashing devastating automated fury.", imgUrl: "2.jpg" },
+                        { name: "M142 HIMARS Rocket Artillery", origin: "United States", year: "2010", desc: "The wrath of the modern gods, delivered from miles beyond the horizon. A mobile, fleeting maestro of destruction that rains pinpoint precision and explosive chaos upon the heads of the unsuspecting, turning grid coordinates into craters.", imgUrl: "3.jpg" },
+                        { name: "Lynx KF41 Infantry Fighting Vehicle", origin: "Germany", year: "2018", desc: "A highly modular, mechanized vanguard designed to seamlessly ferry combat-hardened operatives through the deafening tempest of modern warfare while providing devastating kinetic overwatch.", imgUrl: "4.jpg" },
+                        { name: "Iron Beam Directed Energy Weapon", origin: "Israel", year: "2024", desc: "A blinding flash of directed energy that literally burns incoming mortar shells and autonomous drones out of the sky at the speed of light, representing the absolute frontier of silent, infinite-magazine air defense.", imgUrl: "5.jpg" }
                     ];
+                    
                     landWeapons.forEach((weapon, index) => {
                         let num = (index + 1).toString().padStart(2, '0');
                         let flexDir = index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"; 
@@ -326,7 +327,13 @@
                                             WEAPON #${num}
                                         </div>
                                         <h3 class="text-4xl lg:text-5xl font-black leading-tight logo-font text-white">${weapon.name}</h3>
-                                        <div class="mt-8 long-text text-xl leading-relaxed text-neutral-400">
+                                        
+                                        <div class="flex flex-col gap-1 mt-6 mb-6 border-l-2 border-red-600 pl-4 py-1">
+                                            <span class="text-sm font-bold tracking-widest text-neutral-300 uppercase">ORIGIN: ${weapon.origin}</span>
+                                            <span class="text-sm font-bold tracking-widest text-neutral-500 uppercase">FIRST INTRODUCED: ${weapon.year}</span>
+                                        </div>
+
+                                        <div class="mt-4 long-text text-xl leading-relaxed text-neutral-400">
                                             ${weapon.desc}
                                         </div>
                                     </div>
@@ -334,7 +341,7 @@
                                     <div class="lg:w-96 flex-shrink-0 relative overflow-hidden rounded-2xl shadow-lg" data-aos="zoom-in" data-aos-delay="200">
                                         <img src="${weapon.imgUrl}" 
                                              alt="${weapon.name}" 
-                                             class="aspect-video w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110">
+                                             class="aspect-video w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110 bg-neutral-800">
                                         <div class="absolute inset-0 border-2 border-transparent group-hover:border-white/30 transition-all duration-500 rounded-2xl pointer-events-none"></div>
                                     </div>
                                 </div>
@@ -386,13 +393,14 @@
 
                 <script>
                     const navyWeapons = [
-                        { name: "Ford-Class Aircraft Carrier", desc: "A colossal, floating island of nuclear-powered diplomacy. It carries an entire, devastating air force upon its flat back, effortlessly projecting imperial power and the threat of total ruin to the furthest, most hostile reaches of the globe.", imgUrl: "https://image.pollinations.ai/prompt/USS%20Gerald%20R%20Ford%20Aircraft%20Carrier%20in%20ocean%20realistic?width=800&height=450&nologo=true" },
-                        { name: "Virginia-Class Attack Submarine", desc: "The ultimate silent assassin of the abyssal depths. It slips quietly through the crushing, icy dark unseen, a mechanical phantom capable of sinking entire armadas or unleashing a barrage of cruise missiles upon unsuspecting inland targets.", imgUrl: "https://image.pollinations.ai/prompt/Virginia-Class%20Attack%20Submarine%20surfacing%20ocean%20realistic?width=800&height=450&nologo=true" },
-                        { name: "Arleigh Burke-Class Destroyer", desc: "The tireless, heavily-armed workhorse of the modern fleet. A sleek steel greyhound bristling with advanced defensive radar shields and offensive missile spears, fiercely guarding the fragile, tense peace of the international sea lanes.", imgUrl: "https://image.pollinations.ai/prompt/Arleigh%20Burke-Class%20Destroyer%20ship%20at%20sea%20realistic?width=800&height=450&nologo=true" },
-                        { name: "Columbia-Class Ballistic Submarine", desc: "The ultimate, chilling guarantor of human survival. A billion-dollar ghost ship hiding in the darkest oceanic trenches, carrying within its hull the apocalyptic fire of strategic nuclear deterrence.", imgUrl: "https://image.pollinations.ai/prompt/Columbia-Class%20Ballistic%20Submarine%20dark%20water%20realistic?width=800&height=450&nologo=true" }
+                        { name: "Gerald R. Ford-Class Carrier", origin: "United States", year: "2017", desc: "A colossal, floating island of nuclear-powered diplomacy. It carries an entire, devastating air force upon its flat back, effortlessly projecting imperial power and the threat of total ruin to the furthest, most hostile reaches of the globe.", imgUrl: "6.jpg" },
+                        { name: "Zumwalt-Class Destroyer", origin: "United States", year: "2016", desc: "A towering marvel of maritime stealth, its knife-like, tumblehome hull slicing effortlessly through radar waves and churning oceans alike to project overwhelming, pinpoint electromagnetic dominance.", imgUrl: "7.jpg" },
+                        { name: "Type 055 Destroyer", origin: "China", year: "2020", desc: "A heavily armed titan of the eastern seas, bristling with advanced vertical launch cells and dual-band radar arrays that orchestrate an impenetrable dome of multi-layered naval supremacy.", imgUrl: "8.jpg" },
+                        { name: "Columbia-Class Ballistic Submarine", origin: "United States", year: "2031 (Planned)", desc: "The ultimate, chilling guarantor of human survival. A billion-dollar ghost ship hiding in the darkest oceanic trenches, carrying within its hull the apocalyptic fire of strategic nuclear deterrence.", imgUrl: "9.jpg" }
                     ];
+
                     navyWeapons.forEach((weapon, index) => {
-                        let num = (index + 1).toString().padStart(2, '0');
+                        let num = (index + 6).toString().padStart(2, '0'); // offset for weapon numbering
                         let flexDir = index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse";
                         let fadeDir = index % 2 === 0 ? "fade-right" : "fade-left";
                         
@@ -404,7 +412,13 @@
                                             WEAPON #${num}
                                         </div>
                                         <h3 class="text-4xl lg:text-5xl font-black leading-tight logo-font text-white">${weapon.name}</h3>
-                                        <div class="mt-8 long-text text-xl leading-relaxed text-neutral-400">
+                                        
+                                        <div class="flex flex-col gap-1 mt-6 mb-6 border-l-2 border-red-600 pl-4 py-1">
+                                            <span class="text-sm font-bold tracking-widest text-neutral-300 uppercase">ORIGIN: ${weapon.origin}</span>
+                                            <span class="text-sm font-bold tracking-widest text-neutral-500 uppercase">FIRST INTRODUCED: ${weapon.year}</span>
+                                        </div>
+
+                                        <div class="mt-4 long-text text-xl leading-relaxed text-neutral-400">
                                             ${weapon.desc}
                                         </div>
                                     </div>
@@ -412,7 +426,7 @@
                                     <div class="lg:w-96 flex-shrink-0 relative overflow-hidden rounded-2xl shadow-lg" data-aos="zoom-in" data-aos-delay="200">
                                         <img src="${weapon.imgUrl}" 
                                              alt="${weapon.name}" 
-                                             class="aspect-video w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110">
+                                             class="aspect-video w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110 bg-neutral-800">
                                         <div class="absolute inset-0 border-2 border-transparent group-hover:border-white/30 transition-all duration-500 rounded-2xl pointer-events-none"></div>
                                     </div>
                                 </div>
@@ -464,14 +478,16 @@
 
                 <script>
                     const airWeapons = [
-                        { name: "F-35 Lightning II", desc: "A flying, supersonic supercomputer cloaked in advanced stealth. It masterfully orchestrates the entire battlefield, processing millions of variables a second while remaining utterly invisible to its prey.", imgUrl: "https://image.pollinations.ai/prompt/F-35%20Lightning%20II%20Stealth%20Fighter%20in%20flight%20realistic?width=800&height=450&nologo=true" },
-                        { name: "F-22 Raptor", desc: "The undisputed sovereign of the skies. An unparalleled marvel of thrust-vectoring that dances violently through thin air, built solely to dominate and mercilessly eliminate other aircraft in visual or beyond-visual range.", imgUrl: "https://image.pollinations.ai/prompt/F-22%20Raptor%20Fighter%20Jet%20in%20flight%20military?width=800&height=450&nologo=true" },
-                        { name: "B-2 Spirit Stealth Bomber", desc: "A bat-winged specter of the night. It slips silently through complex radar networks, carrying the world-ending weight of global strike capabilities directly to the doorstep of the enemy.", imgUrl: "https://image.pollinations.ai/prompt/B-2%20Spirit%20Stealth%20Bomber%20flying%20realistic?width=800&height=450&nologo=true" },
-                        { name: "MQ-9 Reaper Drone", desc: "An unblinking eye in the stratosphere. It circles endlessly, watching with thermal optics before unleashing silent, devastating air-to-ground missile strikes driven by pilots sitting thousands of miles away.", imgUrl: "https://image.pollinations.ai/prompt/MQ-9%20Reaper%20Drone%20flying%20military%20photography?width=800&height=450&nologo=true" },
-                        { name: "AH-64 Apache Helicopter", desc: "The apex predator of low-altitude combat. Bristling with Hellfire missiles and a chaingun slaved directly to the pilot's helmet movements, it is the pure, mechanized wrath of close air support.", imgUrl: "https://image.pollinations.ai/prompt/AH-64%20Apache%20Helicopter%20flying%20combat%20realistic?width=800&height=450&nologo=true" }
+                        { name: "F-35 Lightning II", origin: "United States", year: "2015", desc: "A flying, supersonic supercomputer cloaked in advanced stealth. It masterfully orchestrates the entire battlefield, processing millions of variables a second while remaining utterly invisible to its prey.", imgUrl: "10.jpg" },
+                        { name: "B-2 Spirit Stealth Bomber", origin: "United States", year: "1997", desc: "A bat-winged specter of the night. It slips silently through complex radar networks, carrying the world-ending weight of global strike capabilities directly to the doorstep of the enemy.", imgUrl: "11.jpg" },
+                        { name: "Chengdu 6th-Gen 'White Emperor'", origin: "China", year: "In Development", desc: "A tailless, diamond-double-delta stealth marvel representing a sheer, ambitious leap into sixth-generation cognitive warfare. Conceived as an uncatchable command hub designed to seamlessly coordinate autonomous drone swarms while maintaining absolute radar invisibility.", imgUrl: "12.jpg" },
+                        { name: "Su-57 Felon", origin: "Russia", year: "2020", desc: "A brutally agile, fifth-generation apex predator built for thrust-vectoring supremacy. It blends radar-evading geometry with hyper-maneuverable aerodynamics to violently dismantle adversaries in the contested skies.", imgUrl: "13.jpg" },
+                        { name: "XQ-58 Valkyrie", origin: "United States", year: "2019", desc: "An autonomous, algorithmic wingman forged to accompany human aces into the deadliest airspace on Earth. It acts as a disposable, highly lethal force multiplier, flawlessly executing algorithmic strike coordination without the fragility of flesh.", imgUrl: "14.jpg" },
+                        { name: "Bayraktar TB2 Drone", origin: "Turkey", year: "2014", desc: "The undisputed catalyst of modern asymmetric warfare. A highly resilient, low-cost autonomous predator that loiters silently for days, radically shifting the balance of power by dismantling billion-dollar armor with chilling, cost-effective precision.", imgUrl: "15.jpg" }
                     ];
+
                     airWeapons.forEach((weapon, index) => {
-                        let num = (index + 1).toString().padStart(2, '0');
+                        let num = (index + 10).toString().padStart(2, '0'); // offset for weapon numbering
                         let flexDir = index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse";
                         let fadeDir = index % 2 === 0 ? "fade-right" : "fade-left";
                         
@@ -483,7 +499,13 @@
                                             WEAPON #${num}
                                         </div>
                                         <h3 class="text-4xl lg:text-5xl font-black leading-tight logo-font text-white">${weapon.name}</h3>
-                                        <div class="mt-8 long-text text-xl leading-relaxed text-neutral-400">
+                                        
+                                        <div class="flex flex-col gap-1 mt-6 mb-6 border-l-2 border-red-600 pl-4 py-1">
+                                            <span class="text-sm font-bold tracking-widest text-neutral-300 uppercase">ORIGIN: ${weapon.origin}</span>
+                                            <span class="text-sm font-bold tracking-widest text-neutral-500 uppercase">FIRST INTRODUCED: ${weapon.year}</span>
+                                        </div>
+
+                                        <div class="mt-4 long-text text-xl leading-relaxed text-neutral-400">
                                             ${weapon.desc}
                                         </div>
                                     </div>
@@ -491,7 +513,7 @@
                                     <div class="lg:w-96 flex-shrink-0 relative overflow-hidden rounded-2xl shadow-lg" data-aos="zoom-in" data-aos-delay="200">
                                         <img src="${weapon.imgUrl}" 
                                              alt="${weapon.name}" 
-                                             class="aspect-video w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110">
+                                             class="aspect-video w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110 bg-neutral-800">
                                         <div class="absolute inset-0 border-2 border-transparent group-hover:border-white/30 transition-all duration-500 rounded-2xl pointer-events-none"></div>
                                     </div>
                                 </div>
