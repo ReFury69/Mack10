@@ -102,6 +102,26 @@
         .gsap-hidden {
             visibility: hidden;
         }
+
+        /* Cyber Section Drone & Scanner Animations */
+        @keyframes float-drone {
+            0%, 100% { transform: translateY(0) translateX(0) rotate(0deg); }
+            33% { transform: translateY(-20px) translateX(15px) rotate(3deg); }
+            66% { transform: translateY(15px) translateX(-15px) rotate(-3deg); }
+        }
+        
+        @keyframes scan-sweep {
+            0% { top: -10%; opacity: 0; }
+            10% { opacity: 0.8; }
+            50% { opacity: 1; }
+            90% { opacity: 0.8; }
+            100% { top: 110%; opacity: 0; }
+        }
+        
+        .animate-drone-1 { animation: float-drone 6s ease-in-out infinite; }
+        .animate-drone-2 { animation: float-drone 8s ease-in-out infinite reverse; }
+        .animate-drone-3 { animation: float-drone 7s ease-in-out infinite 1s; }
+        .animate-scanner { animation: scan-sweep 5s linear infinite; }
     </style>
 </head>
 <body class="bg-black text-white overflow-x-hidden">
@@ -110,11 +130,12 @@
 
     <div id="leftSidebar" class="fixed inset-y-0 left-0 w-72 bg-[#0a0a0a] border-r border-white/10 transform -translate-x-full transition-transform duration-400 ease-in-out z-[60] flex flex-col shadow-2xl">
         <div class="p-8 flex justify-between items-center border-b border-white/10">
-            <span class="logo-font text-xl font-black tracking-tighter text-white">EXPLORE</span>
+            <span class="logo-font text-xl font-black tracking-tighter text-white">MENU</span>
             <button onclick="toggleLeftSidebar()" class="text-2xl text-neutral-500 hover:text-white transition-colors">
                 <i class="fa-solid fa-xmark"></i>
             </button>
         </div>
+        
         <div class="flex flex-col p-8 gap-y-8 text-lg font-bold text-neutral-400">
             <a href="photoessay.html" class="nav-link w-max hover:text-white flex items-center gap-4 transition-colors">
                 <i class="fa-solid fa-camera-retro w-6 text-center text-xl"></i> PHOTO ESSAY
@@ -129,6 +150,7 @@
                 <i class="fa-solid fa-clipboard-list w-6 text-center text-xl"></i> SURVEY
             </a>
         </div>
+        
         <div class="mt-auto p-8 border-t border-white/10 text-sm text-neutral-600 font-medium">
             © 2026 MODERNIZATION.<br>All rights reserved.
         </div>
@@ -201,24 +223,26 @@
             <div class="text-center mb-24" data-aos="fade-up">
                 <h2 class="section-header text-black">THE PATH TO MODERNITY</h2>
                 <p class="max-w-4xl mx-auto mt-8 text-xl md:text-2xl leading-relaxed text-neutral-600 long-text">
-                    To trace the sprawling lineage of warfare is to map the long shadow of human progress. Every passing era demands a radically new doctrine; every turn of the century births a terrifying new marvel. We have journeyed endlessly—from the bloody, intimate crush of the ancient phalanx to the sterile, calculated precision of the algorithmic strike. We have traded the deafening clash of steel against shield for the silent, omnipotent hum of distant server farms and orbital satellites.
+                    To trace the sprawling lineage of warfare is to map the long shadow of human progress. Every passing era demands a radically new doctrine; every leap in science births a terrifying new marvel. The evolution of weaponry is essentially the evolution of applied physics, chemistry, and eventually, mathematics. We journeyed from mastering the heat of the forge to harnessing the explosive expansion of gases, splitting the fundamental atom, and finally, bending the invisible electromagnetic spectrum to our will.
                 </p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <div class="timeline-box bg-neutral-100 border border-black/10 p-10 rounded-3xl" data-aos="fade-up" data-aos-delay="100">
                     <div class="uppercase text-xs font-bold tracking-widest mb-4 text-neutral-500">PHASE 01</div>
-                    <div class="text-2xl font-bold mb-6 logo-font text-black">PRE-INDUSTRIAL</div>
+                    <div class="text-2xl font-bold mb-6 logo-font text-black">METALLURGY & KINETICS</div>
                     <div class="text-neutral-600 text-lg leading-relaxed long-text">
-                        In the dawn of nascent empires, combat was a brutal, visceral calculus of torn muscle and shattered bronze. The spoils of victory belonged exclusively to the disciplined mass of the shield wall, the earth-shaking momentum of the cavalry charge, and the unwavering, desperate courage of men who fought and died looking their enemies directly in the eye upon open, blood-soaked fields.
+                        In the brutal dawn of civilization, the battlefield was a visceral theater dictated entirely by muscle, gravity, and the rudimentary mastery of earth's raw metals. The serendipitous discovery of bronze, and later the unforgiving temper of iron, allowed nascent empires to forge implements of slaughter that would not shatter against bone or wooden shield. The composite bow, a marvel of ancient tension, stored potential human energy to deliver lethal kinetic force across the plains.<br><br>
+                        <span class="font-bold text-black italic">Examples abound in antiquity:</span> The disciplined, impenetrable bronze-clad phalanxes of Alexander the Great that ruthlessly fractured the Persian lines, or the devastating iron <i>gladius</i> wielded by the Roman legions that methodically carved out a continent-spanning empire through close-quarters butchery.
                     </div>
                 </div>
                 
                 <div class="timeline-box bg-neutral-100 border border-black/10 p-10 rounded-3xl" data-aos="fade-up" data-aos-delay="200">
                     <div class="uppercase text-xs font-bold tracking-widest mb-4 text-neutral-500">PHASE 02</div>
-                    <div class="text-2xl font-bold mb-6 logo-font text-black">MECHANIZATION</div>
+                    <div class="text-2xl font-bold mb-6 logo-font text-black">CHEMISTRY & COMBUSTION</div>
                     <div class="text-neutral-600 text-lg leading-relaxed long-text">
-                        The Industrial Revolution blackened the skies with soot and mechanized the ancient art of slaughter. Flesh and blood men were reduced to mere cogs within a vast, unfeeling engine of attrition, as sprawling railways delivered millions of souls directly into the gaping maw of rapid-fire artillery and the claustrophobic, disease-ridden nightmare of the trenches.
+                        The alchemical discovery of black powder fundamentally shattered the ancient world order, instantly rendering the towering stone castle and the plate-armored knight utterly obsolete. Chemical reactions violently replaced human sinew as the primary engine of lethality. As the Industrial Revolution blackened the skies, it birthed the internal combustion engine, ruthlessly mechanizing the art of slaughter. Flesh and blood were tragically reduced to fragile cogs within vast engines of industrialized attrition.<br><br>
+                        <span class="font-bold text-black italic">Historical Catalysts:</span> Behold the catastrophic bombard siege artillery of the Ottomans at Constantinople in 1453, or the mechanized horrors of the Somme in World War I, where the Maxim machine gun and creeping artillery barrages transformed pastoral fields into churning, mud-soaked meat grinders.
                     </div>
                 </div>
                 
@@ -226,15 +250,17 @@
                     <div class="uppercase text-xs font-bold tracking-widest mb-4 text-neutral-500">PHASE 03</div>
                     <div class="text-2xl font-bold mb-6 logo-font text-black">THE ATOMIC AGE</div>
                     <div class="text-neutral-600 text-lg leading-relaxed long-text">
-                        The world abruptly awoke to a blinding flash brighter than a thousand suns, and the very nature of conflict was fractured forever. War was no longer simply about conquering the enemy's lands, but about ensuring mutually assured survival while cowering beneath the perpetual, suffocating shadow of absolute, species-ending annihilation.
+                        By forcibly splitting the fundamental building blocks of the universe, humanity ascended to a terrifying plateau of godlike destructive capability. The world abruptly awoke to a blinding flash brighter than a thousand suns, and the traditional geometry of conflict was fractured forever. War shifted drastically from territorial conquest to the chilling calculus of psychological deterrence. Superpowers engaged in shadowy proxy conflicts, cowering beneath the perpetual, suffocating shadow of species-ending annihilation.<br><br>
+                        <span class="font-bold text-black italic">The Paradigm Shift:</span> The grim spectacles of the Manhattan Project at Hiroshima and Nagasaki served as the apocalyptic overture, leading directly to the tense brinkmanship of the Cold War, where the mere push of a button could have unleashed thousands of Intercontinental Ballistic Missiles (ICBMs) to render the Earth a scorched, irradiated husk.
                     </div>
                 </div>
                 
                 <div class="timeline-box bg-neutral-100 border border-black/10 p-10 rounded-3xl" data-aos="fade-up" data-aos-delay="400">
                     <div class="uppercase text-xs font-bold tracking-widest mb-4 text-neutral-500">PHASE 04</div>
-                    <div class="text-2xl font-bold mb-6 logo-font text-black">THE INFORMATION AGE</div>
+                    <div class="text-2xl font-bold mb-6 logo-font text-black">SILICON & INFORMATION</div>
                     <div class="text-neutral-600 text-lg leading-relaxed long-text">
-                        The muddy, physical realm has increasingly surrendered its dominance to the digital ether. Today, the most devastating and crippling blows are struck without a single sound echoing across a valley. Silent satellites watch unblinking from the icy void, while weaponized lines of code quietly dismantle the complex infrastructure of modern civilization from within.
+                        The advent of the microprocessor heralded an era where combat supremacy relies no longer solely on raw, explosive yield, but on omniscient data fusion and unparalleled algorithmic precision. The physical, muddy realm has increasingly surrendered its dominance to the silent, invisible expanse of the digital ether. Today, constellations of unblinking satellites watch from the freezing void of orbit, guiding autonomous, supersonic munitions with terrifying exactitude.<br><br>
+                        <span class="font-bold text-black italic">Modern Execution:</span> We witness this shift in the pinpoint GPS-guided JDAM strikes of the Gulf War, the deployment of the Stuxnet computer worm that silently crippled Iranian nuclear centrifuges, and the modern deployment of AI-driven drone swarms that dismantle complex enemy infrastructure without a single human boot touching the soil.
                     </div>
                 </div>
             </div>
@@ -246,7 +272,7 @@
             <div data-aos="fade-right">
                 <h2 class="section-header text-white">LAND FORCES</h2>
                 <div class="max-w-4xl mt-8 text-xl md:text-2xl leading-relaxed text-neutral-400 long-text">
-                    No matter how high we dare to fly, or how deep into the lightless abyss we dive, humanity remains inevitably, inextricably bound to the earth. The ultimate arbitration of sovereignty—the final say in who rules the world—is still determined by the exhausted boots sinking into the mud, and the heavy armor that relentlessly, violently claims the dirt.
+                    No matter how high we dare to fly, or how deep into the lightless abyss we dive, humanity remains inevitably, inextricably bound to the earth. Land warfare has evolved from the slow march of infantry squares to a highly mobile, networked battlefield. The introduction of the tank in WWI broke the stalemate of the trenches, replacing static defense with armored maneuverability. Today, the ultimate arbitration of sovereignty—the final say in who rules the world—is still determined by exhausted boots sinking into the mud, backed by heavily armored behemoths that relentlessly, violently claim the dirt.
                 </div>
             </div>
 
@@ -255,17 +281,17 @@
                 <div class="evolution-grid">
                     <div class="timeline-box bg-[#111] border border-white/10 p-10 rounded-3xl text-white" data-aos="flip-left" data-aos-delay="0">
                         <div class="uppercase text-xs font-bold tracking-widest mb-4 text-neutral-400">ANCIENT - MEDIEVAL</div>
-                        <div class="text-2xl font-bold mb-6">Infantry &amp; Cavalry Era</div>
-                        <div class="text-neutral-400 text-lg leading-relaxed long-text">The grand era of sweeping, continent-spanning conquests, where legendary empires rose and crumbled into ash solely on the backs of exhausted warhorses and the disciplined, relentless march of foot soldiers across foreign soil.</div>
+                        <div class="text-2xl font-bold mb-6">Infantry & Cavalry Era</div>
+                        <div class="text-neutral-400 text-lg leading-relaxed long-text">The grand era of sweeping, continent-spanning conquests, where legendary empires rose and crumbled into ash solely on the backs of exhausted warhorses and the disciplined, relentless march of foot soldiers holding formations across foreign soil.</div>
                     </div>
                     <div class="timeline-box bg-[#111] border border-white/10 p-10 rounded-3xl text-white" data-aos="flip-left" data-aos-delay="100">
                         <div class="uppercase text-xs font-bold tracking-widest mb-4 text-neutral-400">INDUSTRIAL AGE</div>
-                        <div class="text-2xl font-bold mb-6">Trench &amp; Early Mechanization</div>
+                        <div class="text-2xl font-bold mb-6">Trench & Early Mechanization</div>
                         <div class="text-neutral-400 text-lg leading-relaxed long-text">The violent shattering of romantic military ideals. The brutal efficiency of the machine gun and miles of jagged barbed wire turned open, pastoral fields into churning, muddy meat grinders of brutal, inescapable stalemate.</div>
                     </div>
                     <div class="timeline-box bg-[#111] border border-white/10 p-10 rounded-3xl text-white" data-aos="flip-left" data-aos-delay="200">
                         <div class="uppercase text-xs font-bold tracking-widest mb-4 text-neutral-400">WORLD WARS</div>
-                        <div class="text-2xl font-bold mb-6">Tank &amp; Motorized Warfare</div>
+                        <div class="text-2xl font-bold mb-6">Tank & Motorized Warfare</div>
                         <div class="text-neutral-400 text-lg leading-relaxed long-text">The internal combustion engine finally broke the deadlock, unleashing the terrifying speed of the blitzkrieg. Heavy armor and motorized infantry fundamentally rewrote the ancient rules of mobility, distance, and shock action.</div>
                     </div>
                     <div class="timeline-box bg-[#111] border border-white/10 p-10 rounded-3xl text-white" data-aos="flip-left" data-aos-delay="300">
@@ -284,10 +310,8 @@
                         { name: "M1A2 Abrams Main Battle Tank", desc: "A seventy-ton apex predator forged of advanced steel and depleted uranium armor. It dominates the scarred landscape with devastating kinetic fury, possessing an impenetrable, roaring resolve that breaks the enemy's spirit before the first shell even lands.", imgUrl: "https://image.pollinations.ai/prompt/M1A2%20Abrams%20Main%20Battle%20Tank%20realistic%20military%20photography%20desert?width=800&height=450&nologo=true" },
                         { name: "M2A4 Bradley Infantry Fighting Vehicle", desc: "The mechanized vanguard of the ground assault. It ferries combat-hardened warriors through the deafening tempest of enemy fire, while simultaneously unleashing its own blistering storm of guided vengeance to carve a path forward.", imgUrl: "https://image.pollinations.ai/prompt/M2A4%20Bradley%20Infantry%20Fighting%20Vehicle%20military%20combat%20photography?width=800&height=450&nologo=true" },
                         { name: "M142 HIMARS Rocket Artillery", desc: "The wrath of the modern gods, delivered from miles beyond the horizon. A mobile, fleeting maestro of destruction that rains pinpoint precision and explosive chaos upon the heads of the unsuspecting, turning grid coordinates into craters.", imgUrl: "https://image.pollinations.ai/prompt/M142%20HIMARS%20Rocket%20Artillery%20firing%20realistic?width=800&height=450&nologo=true" },
-                        { name: "Leopard 2A7V Tank", desc: "The pinnacle of European heavy armor, combining an unyielding hull with a lethal 120mm smoothbore gun designed to dismantle any adversary.", imgUrl: "https://image.pollinations.ai/prompt/Leopard%202A7V%20Tank%20realistic%20military%20photography?width=800&height=450&nologo=true" },
-                        { name: "K9 Thunder Howitzer", desc: "A self-propelled artillery juggernaut capable of unleashing a rapid barrage of high-explosive shells across vast distances in a matter of seconds.", imgUrl: "https://image.pollinations.ai/prompt/K9%20Thunder%20Howitzer%20firing%20realistic?width=800&height=450&nologo=true" },
-                        { name: "Stryker Dragoon ICV", desc: "An eight-wheeled armored combat vehicle built for rapid deployment and versatility, bringing infantry directly to the frontlines with heavy cannon support.", imgUrl: "https://image.pollinations.ai/prompt/Stryker%20Dragoon%20Infantry%20Carrier%20Vehicle%20realistic?width=800&height=450&nologo=true" },
-                        { name: "Patriot MIM-104 Missile System", desc: "A hyper-vigilant sentinel standing guard against the falling sky. It sweeps the heavens with invisible, probing eyes to intercept and violently shatter incoming supersonic doom long before it can scorch the earth below.", imgUrl: "https://image.pollinations.ai/prompt/Patriot%20MIM-104%20Missile%20System%20launching%20realistic?width=800&height=450&nologo=true" }
+                        { name: "Leopard 2A7V Tank", desc: "The pinnacle of European heavy armor, combining an unyielding hull with a lethal 120mm smoothbore gun designed to violently dismantle any adversary unfortunate enough to enter its optical sights.", imgUrl: "https://image.pollinations.ai/prompt/Leopard%202A7V%20Tank%20realistic%20military%20photography?width=800&height=450&nologo=true" },
+                        { name: "Patriot MIM-104 Missile System", desc: "A hyper-vigilant sentinel standing guard against the falling sky. It sweeps the heavens with invisible, probing radar eyes to intercept and violently shatter incoming supersonic doom long before it can scorch the earth below.", imgUrl: "https://image.pollinations.ai/prompt/Patriot%20MIM-104%20Missile%20System%20launching%20realistic?width=800&height=450&nologo=true" }
                     ];
                     landWeapons.forEach((weapon, index) => {
                         let num = (index + 1).toString().padStart(2, '0');
@@ -327,7 +351,7 @@
             <div data-aos="fade-right">
                 <h2 class="section-header text-white">NAVY FORCES</h2>
                 <div class="max-w-4xl mt-8 text-xl md:text-2xl leading-relaxed text-neutral-400 long-text">
-                    The oceans are the vast, untamed, and unforgiving highways of the globe. To command the turbulent sea is to hold the very arteries of world trade by the throat, possessing the godlike, undeniable ability to project overwhelming, catastrophic might to any distant, unsuspecting shore on Earth.
+                    The oceans are the vast, untamed, and unforgiving highways of the globe. For centuries, maritime combat was constrained by the unpredictable whims of the wind. The evolution from timber to ironclads, driven by the furious heat of the steam boiler, allowed fleets to ignore the weather entirely and sail directly into the maw of the enemy. The subsequent leap to nuclear propulsion granted submarines infinite endurance, turning the abyssal depths into the ultimate stalking ground. To command the turbulent sea today is to hold the very arteries of world trade by the throat, possessing the godlike, undeniable ability to project overwhelming, catastrophic might to any distant, unsuspecting shore on Earth.
                 </div>
             </div>
 
@@ -336,22 +360,22 @@
                 <div class="evolution-grid">
                     <div class="timeline-box bg-[#222] border border-white/10 p-10 rounded-3xl text-white" data-aos="flip-left" data-aos-delay="0">
                         <div class="uppercase text-xs font-bold tracking-widest mb-4 text-neutral-400">AGE OF SAIL</div>
-                        <div class="text-2xl font-bold mb-6">Wooden Ships &amp; Cannon</div>
+                        <div class="text-2xl font-bold mb-6">Wooden Ships & Cannon</div>
                         <div class="text-neutral-400 text-lg leading-relaxed long-text">Majestic, towering galleons and ships of the line, dancing perilous ballets at the absolute mercy of the wind, only to deliver point-blank broadsides of deafening, wood-splintering iron across churning waves.</div>
                     </div>
                     <div class="timeline-box bg-[#222] border border-white/10 p-10 rounded-3xl text-white" data-aos="flip-left" data-aos-delay="100">
                         <div class="uppercase text-xs font-bold tracking-widest mb-4 text-neutral-400">IRONCLAD ERA</div>
-                        <div class="text-2xl font-bold mb-6">Steam &amp; Steel Battleships</div>
+                        <div class="text-2xl font-bold mb-6">Steam & Steel Battleships</div>
                         <div class="text-neutral-400 text-lg leading-relaxed long-text">The romantic age of sail burned away violently in the roaring furnaces of steam propulsion, replacing elegant timber with the grim, unyielding reality of thick, impenetrable steel plating and massive turreted guns.</div>
                     </div>
                     <div class="timeline-box bg-[#222] border border-white/10 p-10 rounded-3xl text-white" data-aos="flip-left" data-aos-delay="200">
                         <div class="uppercase text-xs font-bold tracking-widest mb-4 text-neutral-400">WORLD WARS</div>
-                        <div class="text-2xl font-bold mb-6">Carrier &amp; Submarine Age</div>
+                        <div class="text-2xl font-bold mb-6">Carrier & Submarine Age</div>
                         <div class="text-neutral-400 text-lg leading-relaxed long-text">Floating leviathans clashed in titanic surface duels, while deep below the sunlit zone, silent, pressure-crushed predators redefined the deadly, nerve-wracking art of unseen maritime ambush and blockade.</div>
                     </div>
                     <div class="timeline-box bg-[#222] border border-white/10 p-10 rounded-3xl text-white" data-aos="flip-left" data-aos-delay="300">
                         <div class="uppercase text-xs font-bold tracking-widest mb-4 text-neutral-400">MODERN ERA</div>
-                        <div class="text-2xl font-bold mb-6">Stealth &amp; Networked Fleets</div>
+                        <div class="text-2xl font-bold mb-6">Stealth & Networked Fleets</div>
                         <div class="text-neutral-400 text-lg leading-relaxed long-text">Sprawling, floating cities of sovereign power, seamlessly projecting air dominance and impenetrable missile defense across thousands of miles of open, contested water without ever firing a visual-range shot.</div>
                     </div>
                 </div>
@@ -365,9 +389,6 @@
                         { name: "Ford-Class Aircraft Carrier", desc: "A colossal, floating island of nuclear-powered diplomacy. It carries an entire, devastating air force upon its flat back, effortlessly projecting imperial power and the threat of total ruin to the furthest, most hostile reaches of the globe.", imgUrl: "https://image.pollinations.ai/prompt/USS%20Gerald%20R%20Ford%20Aircraft%20Carrier%20in%20ocean%20realistic?width=800&height=450&nologo=true" },
                         { name: "Virginia-Class Attack Submarine", desc: "The ultimate silent assassin of the abyssal depths. It slips quietly through the crushing, icy dark unseen, a mechanical phantom capable of sinking entire armadas or unleashing a barrage of cruise missiles upon unsuspecting inland targets.", imgUrl: "https://image.pollinations.ai/prompt/Virginia-Class%20Attack%20Submarine%20surfacing%20ocean%20realistic?width=800&height=450&nologo=true" },
                         { name: "Arleigh Burke-Class Destroyer", desc: "The tireless, heavily-armed workhorse of the modern fleet. A sleek steel greyhound bristling with advanced defensive radar shields and offensive missile spears, fiercely guarding the fragile, tense peace of the international sea lanes.", imgUrl: "https://image.pollinations.ai/prompt/Arleigh%20Burke-Class%20Destroyer%20ship%20at%20sea%20realistic?width=800&height=450&nologo=true" },
-                        { name: "Zumwalt-Class Destroyer", desc: "A stealth-focused marvel of maritime engineering. Its angular hull slices through radar waves as effortlessly as it does the churning sea.", imgUrl: "https://image.pollinations.ai/prompt/Zumwalt-Class%20Destroyer%20stealth%20ship%20realistic?width=800&height=450&nologo=true" },
-                        { name: "Astute-Class Submarine", desc: "A hunter-killer beneath the waves, designed with acoustic dampening so advanced it is virtually a ghost on enemy sonar systems.", imgUrl: "https://image.pollinations.ai/prompt/Astute-Class%20Submarine%20in%20water%20military?width=800&height=450&nologo=true" },
-                        { name: "Ticonderoga-Class Cruiser", desc: "A floating fortress equipped with the Aegis combat system, serving as the central nervous system for fleet-wide anti-air and anti-missile defense.", imgUrl: "https://image.pollinations.ai/prompt/Ticonderoga-Class%20Cruiser%20military%20ship%20ocean?width=800&height=450&nologo=true" },
                         { name: "Columbia-Class Ballistic Submarine", desc: "The ultimate, chilling guarantor of human survival. A billion-dollar ghost ship hiding in the darkest oceanic trenches, carrying within its hull the apocalyptic fire of strategic nuclear deterrence.", imgUrl: "https://image.pollinations.ai/prompt/Columbia-Class%20Ballistic%20Submarine%20dark%20water%20realistic?width=800&height=450&nologo=true" }
                     ];
                     navyWeapons.forEach((weapon, index) => {
@@ -408,7 +429,7 @@
             <div data-aos="fade-right">
                 <h2 class="section-header text-white">AIRFORCE</h2>
                 <div class="max-w-4xl mt-8 text-xl md:text-2xl leading-relaxed text-neutral-400 long-text">
-                    When humanity finally broke the surly bonds of gravity and conquered the skies, the battlefield expanded instantly into the infinite. Air power is the ultimate, terrifying expression of reach, blinding speed, and the undeniable psychological terror of a devastating threat that cannot be seen until it is too late.
+                    When humanity finally broke the surly bonds of gravity and conquered the skies, the battlefield expanded instantly into the infinite third dimension. The transition from canvas-winged biplanes to jet propulsion was remarkably swift, driven entirely by the desperate needs of the Second World War. By harnessing the massive thrust of expanding exhaust gases, engineers tore through the sound barrier, fundamentally altering the geometry of combat. Today, air power is the ultimate, terrifying expression of reach, blinding speed, and the undeniable psychological terror of a devastating threat that cannot be seen until the payload has already struck.
                 </div>
             </div>
 
@@ -417,22 +438,22 @@
                 <div class="evolution-grid">
                     <div class="timeline-box bg-[#111] border border-white/10 p-10 rounded-3xl text-white" data-aos="flip-left" data-aos-delay="0">
                         <div class="uppercase text-xs font-bold tracking-widest mb-4 text-neutral-400">EARLY FLIGHT</div>
-                        <div class="text-2xl font-bold mb-6">Biplanes &amp; Recon</div>
+                        <div class="text-2xl font-bold mb-6">Biplanes & Recon</div>
                         <div class="text-neutral-400 text-lg leading-relaxed long-text">Fragile, combustible constructs of taut canvas and humming wire, flown by chivalrous modern knights who fought noble, deadly, and deeply personal duels high above the apocalyptic mud of the trenches below.</div>
                     </div>
                     <div class="timeline-box bg-[#111] border border-white/10 p-10 rounded-3xl text-white" data-aos="flip-left" data-aos-delay="100">
                         <div class="uppercase text-xs font-bold tracking-widest mb-4 text-neutral-400">WORLD WAR II</div>
-                        <div class="text-2xl font-bold mb-6">Jets &amp; Strategic Bombing</div>
+                        <div class="text-2xl font-bold mb-6">Jets & Strategic Bombing</div>
                         <div class="text-neutral-400 text-lg leading-relaxed long-text">The skies darkened entirely with the endless drone of heavy bombers erasing cities, while the very first jets tore through the heavens, forever changing the geometry and speed of aerial combat.</div>
                     </div>
                     <div class="timeline-box bg-[#111] border border-white/10 p-10 rounded-3xl text-white" data-aos="flip-left" data-aos-delay="200">
                         <div class="uppercase text-xs font-bold tracking-widest mb-4 text-neutral-400">COLD WAR</div>
-                        <div class="text-2xl font-bold mb-6">Supersonic &amp; Stealth</div>
+                        <div class="text-2xl font-bold mb-6">Supersonic & Stealth</div>
                         <div class="text-neutral-400 text-lg leading-relaxed long-text">A high-stakes, breathless chess match of supersonic interceptors and radar-evading strategic bombers, perpetually poised on the razor's edge of triggering global thermonuclear annihilation at a moment's notice.</div>
                     </div>
                     <div class="timeline-box bg-[#111] border border-white/10 p-10 rounded-3xl text-white" data-aos="flip-left" data-aos-delay="300">
                         <div class="uppercase text-xs font-bold tracking-widest mb-4 text-neutral-400">21ST CENTURY</div>
-                        <div class="text-2xl font-bold mb-6">Drone Swarms &amp; Hypersonic</div>
+                        <div class="text-2xl font-bold mb-6">Drone Swarms & Hypersonic</div>
                         <div class="text-neutral-400 text-lg leading-relaxed long-text">An unforgiving era where total dominance is defined not merely by sheer engine thrust, but by absolute invisibility, massive data fusion, and the cold, unblinking logic of unmanned, autonomous systems.</div>
                     </div>
                 </div>
@@ -443,13 +464,11 @@
 
                 <script>
                     const airWeapons = [
-                        { name: "F-35 Lightning II", desc: "A flying, supersonic supercomputer cloaked in advanced stealth. It masterfully orchestrates the entire battlefield while remaining invisible to its prey.", imgUrl: "https://image.pollinations.ai/prompt/F-35%20Lightning%20II%20Stealth%20Fighter%20in%20flight%20realistic?width=800&height=450&nologo=true" },
-                        { name: "F-22 Raptor", desc: "The undisputed sovereign of the skies. An unparalleled marvel of thrust-vectoring that dances violently through thin air, built solely to dominate other aircraft.", imgUrl: "https://image.pollinations.ai/prompt/F-22%20Raptor%20Fighter%20Jet%20in%20flight%20military?width=800&height=450&nologo=true" },
-                        { name: "B-2 Spirit Stealth Bomber", desc: "A bat-winged specter of the night. It slips silently through complex radar networks, carrying the world-ending weight of global strike capabilities.", imgUrl: "https://image.pollinations.ai/prompt/B-2%20Spirit%20Stealth%20Bomber%20flying%20realistic?width=800&height=450&nologo=true" },
-                        { name: "Chengdu J-36 (6th Gen)", desc: "A tailless, diamond-double-delta stealth marvel representing China's leap into sixth-generation warfare. Known as the 'White Emperor', it acts as an uncatchable command hub for drone swarms.", imgUrl: "https://image.pollinations.ai/prompt/Chengdu%20J-36%206th%20Generation%20Stealth%20Fighter%20flying%20realistic?width=800&height=450&nologo=true" },
-                        { name: "Eurofighter Typhoon", desc: "A twin-engine, canard-delta wing multirole fighter. Highly agile and lethally fast, it defends airspace with aggressive interception capabilities.", imgUrl: "https://image.pollinations.ai/prompt/Eurofighter%20Typhoon%20jet%20flying%20realistic?width=800&height=450&nologo=true" },
-                        { name: "MQ-9 Reaper Drone", desc: "An unblinking eye in the stratosphere. It circles endlessly, watching with thermal optics before unleashing silent, devastating air-to-ground missile strikes.", imgUrl: "https://image.pollinations.ai/prompt/MQ-9%20Reaper%20Drone%20flying%20military%20photography?width=800&height=450&nologo=true" },
-                        { name: "AH-64 Apache Helicopter", desc: "The apex predator of low-altitude combat. Bristling with Hellfire missiles and a chaingun slaved to the pilot's helmet movements, it is pure mechanized wrath.", imgUrl: "https://image.pollinations.ai/prompt/AH-64%20Apache%20Helicopter%20flying%20combat%20realistic?width=800&height=450&nologo=true" }
+                        { name: "F-35 Lightning II", desc: "A flying, supersonic supercomputer cloaked in advanced stealth. It masterfully orchestrates the entire battlefield, processing millions of variables a second while remaining utterly invisible to its prey.", imgUrl: "https://image.pollinations.ai/prompt/F-35%20Lightning%20II%20Stealth%20Fighter%20in%20flight%20realistic?width=800&height=450&nologo=true" },
+                        { name: "F-22 Raptor", desc: "The undisputed sovereign of the skies. An unparalleled marvel of thrust-vectoring that dances violently through thin air, built solely to dominate and mercilessly eliminate other aircraft in visual or beyond-visual range.", imgUrl: "https://image.pollinations.ai/prompt/F-22%20Raptor%20Fighter%20Jet%20in%20flight%20military?width=800&height=450&nologo=true" },
+                        { name: "B-2 Spirit Stealth Bomber", desc: "A bat-winged specter of the night. It slips silently through complex radar networks, carrying the world-ending weight of global strike capabilities directly to the doorstep of the enemy.", imgUrl: "https://image.pollinations.ai/prompt/B-2%20Spirit%20Stealth%20Bomber%20flying%20realistic?width=800&height=450&nologo=true" },
+                        { name: "MQ-9 Reaper Drone", desc: "An unblinking eye in the stratosphere. It circles endlessly, watching with thermal optics before unleashing silent, devastating air-to-ground missile strikes driven by pilots sitting thousands of miles away.", imgUrl: "https://image.pollinations.ai/prompt/MQ-9%20Reaper%20Drone%20flying%20military%20photography?width=800&height=450&nologo=true" },
+                        { name: "AH-64 Apache Helicopter", desc: "The apex predator of low-altitude combat. Bristling with Hellfire missiles and a chaingun slaved directly to the pilot's helmet movements, it is the pure, mechanized wrath of close air support.", imgUrl: "https://image.pollinations.ai/prompt/AH-64%20Apache%20Helicopter%20flying%20combat%20realistic?width=800&height=450&nologo=true" }
                     ];
                     airWeapons.forEach((weapon, index) => {
                         let num = (index + 1).toString().padStart(2, '0');
@@ -484,54 +503,123 @@
         </div>
     </section>
 
-    <section id="cyber" class="min-h-screen bg-white text-black py-32 relative overflow-hidden flex flex-col justify-center">
-        <div class="absolute inset-0 opacity-[0.03] pointer-events-none" style="background-image: linear-gradient(black 1px, transparent 1px), linear-gradient(90deg, black 1px, transparent 1px); background-size: 50px 50px;"></div>
+    <section id="cyber" class="min-h-screen bg-white text-black py-32 relative overflow-hidden flex flex-col justify-center border-b-[20px] border-black">
+        <div class="absolute inset-0 opacity-[0.04] pointer-events-none" style="background-image: linear-gradient(black 1px, transparent 1px), linear-gradient(90deg, black 1px, transparent 1px); background-size: 50px 50px;"></div>
+        
+        <div class="absolute left-0 w-full h-[3px] bg-red-600 shadow-[0_0_20px_rgba(220,38,38,1)] z-0 pointer-events-none animate-scanner"></div>
+
+        <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+            <div class="absolute top-[15%] left-[5%] md:left-[15%] animate-drone-1 opacity-20">
+                <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="1.5" class="drop-shadow-2xl">
+                    <path d="M12 2v4M12 18v4M2 12h4M18 12h4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                    <circle cx="12" cy="12" r="3" fill="#dc2626" stroke="none" class="animate-pulse"/>
+                    <circle cx="4.5" cy="4.5" r="2.5"/><circle cx="19.5" cy="4.5" r="2.5"/><circle cx="4.5" cy="19.5" r="2.5"/><circle cx="19.5" cy="19.5" r="2.5"/>
+                </svg>
+            </div>
+            <div class="absolute bottom-[10%] right-[5%] md:right-[15%] animate-drone-2 opacity-[0.25]">
+                <svg width="140" height="140" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="1.5" class="drop-shadow-2xl">
+                    <path d="M12 2v4M12 18v4M2 12h4M18 12h4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                    <circle cx="12" cy="12" r="3" fill="#dc2626" stroke="none" class="animate-pulse"/>
+                    <circle cx="4.5" cy="4.5" r="2.5"/><circle cx="19.5" cy="4.5" r="2.5"/><circle cx="4.5" cy="19.5" r="2.5"/><circle cx="19.5" cy="19.5" r="2.5"/>
+                </svg>
+            </div>
+            <div class="absolute top-[40%] right-[30%] animate-drone-3 opacity-10 hidden md:block">
+                <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="1.5">
+                    <path d="M12 2v4M12 18v4M2 12h4M18 12h4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                    <circle cx="12" cy="12" r="3" fill="#dc2626" stroke="none"/>
+                    <circle cx="4.5" cy="4.5" r="2.5"/><circle cx="19.5" cy="4.5" r="2.5"/><circle cx="4.5" cy="19.5" r="2.5"/><circle cx="19.5" cy="19.5" r="2.5"/>
+                </svg>
+            </div>
+        </div>
         
         <div class="max-w-7xl mx-auto px-8 relative z-10">
             <div class="text-center mb-24" data-aos="zoom-in" data-aos-duration="1200">
-                <h2 class="section-header text-black tracking-[-6px] text-7xl md:text-9xl mb-8">CYBER</h2>
+                <h2 class="section-header text-black tracking-[-6px] text-7xl md:text-9xl mb-8 relative inline-block">
+                    CYBER
+                    <i class="fa-solid fa-crosshairs absolute -right-16 top-0 text-red-600 text-4xl animate-pulse"></i>
+                </h2>
                 <div class="max-w-5xl mx-auto text-2xl md:text-3xl leading-relaxed text-neutral-700 long-text font-serif italic">
                     "The newest front is everywhere and nowhere. It possesses no muddy trenches, no crashing oceans, and no contested airspace—only the endless, silent expanse of networks and code. Here, devastating wars are waged and won in milliseconds."
                 </div>
                 <p class="max-w-4xl mx-auto mt-8 text-xl leading-relaxed text-neutral-600 long-text">
-                    Nations are paralyzed not by the screeching descent of falling bombs, but by malicious keystrokes executed in dark rooms half a world away. This is an invisible, bloodless theater where objective truth, critical infrastructure, and the very fabric of human society serve as the ultimate, unprotected targets.
+                    Nations are paralyzed not by the screeching descent of falling bombs, but by malicious keystrokes executed in dark rooms half a world away. This evolution stems directly from society's absolute dependence on the microchip and internet connectivity. It is an invisible, bloodless theater where objective truth, critical infrastructure, and the very fabric of human society serve as the ultimate, entirely unprotected targets.
                 </p>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
                 <div class="timeline-box bg-black text-white p-10 rounded-3xl shadow-2xl relative overflow-hidden group" data-aos="fade-up" data-aos-delay="100">
-                    <div class="absolute inset-0 bg-gradient-to-br from-neutral-800 to-black opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="absolute inset-0 bg-gradient-to-br from-red-900/40 to-black opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     <div class="relative z-10">
-                        <div class="uppercase text-xs font-bold tracking-widest mb-4 text-neutral-400">DOMAIN 01</div>
+                        <div class="uppercase text-xs font-bold tracking-widest mb-4 text-red-500">DOMAIN 01</div>
                         <div class="text-3xl font-black mb-6 logo-font text-white">THE UNMANNED SWARM</div>
                         <div class="text-neutral-400 text-lg leading-relaxed long-text">
-                            The sky is no longer ruled by solitary human aces, but by terrifying hive minds. A mechanical locust plague of autonomous drones, capable of shifting attack formations at the speed of thought, dismantling complex targets with the cold, unfeeling precision of a mathematical equation. It is the democratization of air power, where sheer numbers overwhelm the most sophisticated defenses.
+                            The sky is no longer ruled by solitary human aces, but by terrifying hive minds driven by onboard microprocessors. A mechanical locust plague of autonomous drones, capable of shifting attack formations at the speed of thought, dismantling complex targets with the cold, unfeeling precision of a mathematical equation. It is the democratization of air power, where sheer numbers and algorithmic coordination overwhelm the most sophisticated, expensive defenses.
                         </div>
                     </div>
                 </div>
 
                 <div class="timeline-box bg-black text-white p-10 rounded-3xl shadow-2xl relative overflow-hidden group" data-aos="fade-up" data-aos-delay="200">
-                    <div class="absolute inset-0 bg-gradient-to-br from-neutral-800 to-black opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="absolute inset-0 bg-gradient-to-br from-red-900/40 to-black opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     <div class="relative z-10">
-                        <div class="uppercase text-xs font-bold tracking-widest mb-4 text-neutral-400">DOMAIN 02</div>
+                        <div class="uppercase text-xs font-bold tracking-widest mb-4 text-red-500">DOMAIN 02</div>
                         <div class="text-3xl font-black mb-6 logo-font text-white">THE DIGITAL SIEGE</div>
                         <div class="text-neutral-400 text-lg leading-relaxed long-text">
-                            The modern fortress wall is not built of stone, but of complex cryptography. In the silent expanse of the digital ether, invisible armies of zero-day exploits clash in nanoseconds. They do not seek to kill the flesh; they seek to paralyze the state. With a single command, they extinguish power grids, erase sovereign wealth, and plunge modern cities into a sudden, chaotic dark.
+                            The modern fortress wall is not built of stone, but of complex cryptography. In the silent expanse of the digital ether, invisible armies of zero-day exploits clash in nanoseconds. They do not seek to kill the flesh; they seek to paralyze the state. With a single, well-placed command payload, they can extinguish power grids, erase sovereign wealth, and plunge heavily populated modern cities into a sudden, chaotic dark.
                         </div>
                     </div>
                 </div>
 
                 <div class="timeline-box bg-black text-white p-10 rounded-3xl shadow-2xl relative overflow-hidden group" data-aos="fade-up" data-aos-delay="300">
-                    <div class="absolute inset-0 bg-gradient-to-br from-neutral-800 to-black opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="absolute inset-0 bg-gradient-to-br from-red-900/40 to-black opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                     <div class="relative z-10">
-                        <div class="uppercase text-xs font-bold tracking-widest mb-4 text-neutral-400">DOMAIN 03</div>
+                        <div class="uppercase text-xs font-bold tracking-widest mb-4 text-red-500">DOMAIN 03</div>
                         <div class="text-3xl font-black mb-6 logo-font text-white">COGNITIVE WARFARE</div>
                         <div class="text-neutral-400 text-lg leading-relaxed long-text">
-                            In this arena, objective truth itself has become the first casualty. Weaponized algorithms, hyper-realistic fabrications, and psychological deepfakes flood the social networks, rewriting reality in real-time. This is the ultimate, insidious infiltration: a war fought not for physical territory or resources, but to conquer the very perception, trust, and soul of the civilian populace.
+                            In this arena, objective truth itself has become the first casualty. Weaponized algorithms, hyper-realistic fabrications, and psychological deepfakes intentionally flood social networks, rewriting reality in real-time. This is the ultimate, insidious infiltration: a war fought not for physical territory or natural resources, but to conquer the very perception, trust, and soul of the civilian populace from within.
                         </div>
                     </div>
                 </div>
             </div>
+
+            <div class="mt-32 pt-24 border-t border-black/10" data-aos="fade-up">
+                <h3 class="text-3xl md:text-5xl font-black mb-16 text-center logo-font text-black tracking-tighter">CONTEMPORARY THEATERS</h3>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div class="bg-black border border-neutral-800 p-8 md:p-10 rounded-3xl shadow-2xl relative overflow-hidden group text-white">
+                        <div class="absolute inset-0 bg-gradient-to-br from-red-900/30 to-black opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <div class="relative z-10">
+                            <i class="fa-solid fa-satellite-dish text-4xl text-red-500 mb-6"></i>
+                            <h4 class="text-2xl font-bold mb-4 logo-font text-white">THE UKRAINIAN PROVING GROUND</h4>
+                            <p class="text-neutral-400 text-lg leading-relaxed long-text">
+                                The ongoing conflict has fundamentally rewritten modern military doctrine. It serves as the first full-scale theater where low-cost, commercial First-Person View (FPV) drones and autonomous naval surface vehicles (USVs) are systematically defeating traditional armor and expensive naval fleets. The battlefield has become an open-source testing ground for rapid iterative innovation, proving that high volume and agility can overwhelm conventional, multi-billion-dollar military might.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-black border border-neutral-800 p-8 md:p-10 rounded-3xl shadow-2xl relative overflow-hidden group text-white">
+                        <div class="absolute inset-0 bg-gradient-to-br from-red-900/30 to-black opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <div class="relative z-10">
+                            <i class="fa-solid fa-user-ninja text-4xl text-red-500 mb-6"></i>
+                            <h4 class="text-2xl font-bold mb-4 logo-font text-white">STATE-SPONSORED DIGITAL HEISTS</h4>
+                            <p class="text-neutral-400 text-lg leading-relaxed long-text">
+                                In the shadows of the cyber realm, state-sponsored actors like North Korea's infamous Lazarus Group (APT38) operate to generate illicit revenue. Bypassing global sanctions, these sophisticated hackers have orchestrated billion-dollar cryptocurrency heists and global ransomware campaigns. These digital bank robberies directly fund the state's nuclear and ballistic missile programs, turning the internet into an asymmetrical funding apparatus for weapons of mass destruction.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-black border border-neutral-800 p-8 md:p-10 rounded-3xl shadow-2xl relative overflow-hidden group text-white">
+                        <div class="absolute inset-0 bg-gradient-to-br from-red-900/30 to-black opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <div class="relative z-10">
+                            <i class="fa-solid fa-microchip text-4xl text-red-500 mb-6"></i>
+                            <h4 class="text-2xl font-bold mb-4 logo-font text-white">ALGORITHMIC TARGETING</h4>
+                            <p class="text-neutral-400 text-lg leading-relaxed long-text">
+                                The rise of AI-assisted target generation systems marks a chilling, unprecedented milestone in modern combat. Complex algorithms now process vast arrays of surveillance data, intercepted communications, and geospatial intelligence in mere seconds to automatically recommend strike targets. This shifts the heavy ethical burden of warfare from human calculation to machine learning, drastically compressing the "kill chain" and ushering in an era of hyper-accelerated combat.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
@@ -575,7 +663,7 @@
             }
         }
 
-        // Smooth Scrolling (for main page anchors only)
+        // Smooth Scrolling for ALL anchors (Main Page + Sidebar)
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 if (this.getAttribute('href') !== '#') {
