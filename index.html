@@ -1,0 +1,703 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MODERNIZATION • The Evolution of Combat</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700;900&display=swap');
+        
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background-color: #000;
+            color: #fff;
+            overflow-x: hidden;
+        }
+        
+        .logo-font {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .hero-title {
+            font-size: clamp(3.5rem, 8vw, 6.5rem);
+            line-height: 1.05;
+            font-weight: 900;
+            letter-spacing: -3px;
+        }
+
+        .section-header {
+            font-size: clamp(3rem, 6vw, 4.5rem);
+            line-height: 1.1;
+            font-weight: 900;
+            letter-spacing: -2px;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .weapon-slide {
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .weapon-slide:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 30px 60px -15px rgba(255, 255, 255, 0.05);
+            border-color: rgba(255,255,255,0.3);
+        }
+
+        .nav-link {
+            position: relative;
+            transition: all 0.3s ease;
+            padding-bottom: 4px;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: currentColor;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+
+        .timeline-box {
+            transition: all 0.4s ease;
+        }
+        
+        .timeline-box:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .vertical-line {
+            position: absolute;
+            left: 50%;
+            top: 80px;
+            bottom: 80px;
+            width: 2px;
+            background: linear-gradient(to bottom, transparent, #fff, #666, transparent);
+            z-index: 0;
+        }
+
+        .long-text {
+            font-size: 1.15rem;
+            line-height: 1.8;
+        }
+
+        .evolution-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .gsap-hidden {
+            visibility: hidden;
+        }
+
+        /* Cyber Section Drone & Scanner Animations */
+        @keyframes float-drone {
+            0%, 100% { transform: translateY(0) translateX(0) rotate(0deg); }
+            33% { transform: translateY(-20px) translateX(15px) rotate(3deg); }
+            66% { transform: translateY(15px) translateX(-15px) rotate(-3deg); }
+        }
+        
+        @keyframes scan-sweep {
+            0% { top: -10%; opacity: 0; }
+            10% { opacity: 0.8; }
+            50% { opacity: 1; }
+            90% { opacity: 0.8; }
+            100% { top: 110%; opacity: 0; }
+        }
+        
+        .animate-drone-1 { animation: float-drone 6s ease-in-out infinite; }
+        .animate-drone-2 { animation: float-drone 8s ease-in-out infinite reverse; }
+        .animate-drone-3 { animation: float-drone 7s ease-in-out infinite 1s; }
+        .animate-scanner { animation: scan-sweep 5s linear infinite; }
+    </style>
+</head>
+<body class="bg-black text-white overflow-x-hidden">
+
+    <div id="sidebarOverlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[55] hidden opacity-0 transition-opacity duration-300" onclick="toggleLeftSidebar()"></div>
+
+    <div id="leftSidebar" class="fixed inset-y-0 left-0 w-72 bg-[#0a0a0a] border-r border-white/10 transform -translate-x-full transition-transform duration-400 ease-in-out z-[60] flex flex-col shadow-2xl">
+        <div class="p-8 flex justify-between items-center border-b border-white/10">
+            <span class="logo-font text-xl font-black tracking-tighter text-white">MENU</span>
+            <button onclick="toggleLeftSidebar()" class="text-2xl text-neutral-500 hover:text-white transition-colors">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+        </div>
+        
+        <div class="flex flex-col p-8 gap-y-8 text-lg font-bold text-neutral-400">
+            <a href="photoessay.html" class="nav-link w-max hover:text-white flex items-center gap-4 transition-colors">
+                <i class="fa-solid fa-camera-retro w-6 text-center text-xl"></i> PHOTO ESSAY
+            </a>
+            <a href="videoessay.html" class="nav-link w-max hover:text-white flex items-center gap-4 transition-colors">
+                <i class="fa-solid fa-film w-6 text-center text-xl"></i> VIDEO ESSAY
+            </a>
+            <a href="about.html" class="nav-link w-max hover:text-white flex items-center gap-4 transition-colors">
+                <i class="fa-solid fa-circle-info w-6 text-center text-xl"></i> ABOUT
+            </a>
+            <a href="survey.html" class="nav-link w-max hover:text-white flex items-center gap-4 transition-colors">
+                <i class="fa-solid fa-clipboard-list w-6 text-center text-xl"></i> SURVEY
+            </a>
+        </div>
+        
+        <div class="mt-auto p-8 border-t border-white/10 text-sm text-neutral-600 font-medium">
+            © 2026 MODERNIZATION.<br>All rights reserved.
+        </div>
+    </div>
+
+    <nav class="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-md border-b border-white/10 gsap-hidden" id="navbar">
+        <div class="max-w-7xl mx-auto px-8 py-5 flex items-center justify-between">
+            <div class="flex items-center gap-x-6">
+                <button onclick="toggleLeftSidebar()" class="text-2xl text-white hover:text-neutral-400 transition-colors">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+                <span class="logo-font text-3xl font-black tracking-tighter text-white">MODERNIZATION</span>
+            </div>
+            
+            <div class="hidden lg:flex items-center gap-x-10 text-sm font-bold tracking-wider text-neutral-400">
+                <a href="#intro" class="nav-link hover:text-white">INTRO</a>
+                <a href="#history" class="nav-link hover:text-white">HISTORY</a>
+                <a href="#land" class="nav-link hover:text-white">LAND</a>
+                <a href="#navy" class="nav-link hover:text-white">NAVY</a>
+                <a href="#airforce" class="nav-link hover:text-white">AIRFORCE</a>
+                <a href="#cyber" class="nav-link hover:text-white">CYBER</a>
+            </div>
+
+            <div class="lg:hidden">
+                <button onclick="toggleMobileMenu()" class="text-2xl text-white hover:text-neutral-400 transition-colors">
+                    <i class="fa-solid fa-ellipsis-vertical"></i>
+                </button>
+            </div>
+        </div>
+        
+        <div id="mobileMenu" class="hidden lg:hidden bg-[#0a0a0a] border-t border-white/10 px-8 py-6 shadow-xl absolute w-full">
+            <div class="flex flex-col gap-y-6 text-lg font-bold text-neutral-300">
+                <a href="#intro" onclick="toggleMobileMenu()" class="nav-link w-max hover:text-white">INTRO</a>
+                <a href="#history" onclick="toggleMobileMenu()" class="nav-link w-max hover:text-white">HISTORY</a>
+                <a href="#land" onclick="toggleMobileMenu()" class="nav-link w-max hover:text-white">LAND FORCES</a>
+                <a href="#navy" onclick="toggleMobileMenu()" class="nav-link w-max hover:text-white">NAVY</a>
+                <a href="#airforce" onclick="toggleMobileMenu()" class="nav-link w-max hover:text-white">AIRFORCE</a>
+                <a href="#cyber" onclick="toggleMobileMenu()" class="nav-link w-max hover:text-white">CYBER</a>
+            </div>
+        </div>
+    </nav>
+
+    <section id="intro" class="min-h-screen bg-[#111] flex items-center pt-20 relative">
+        <div class="max-w-7xl mx-auto px-8 w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-8">
+                    <h1 class="hero-title text-white logo-font gsap-hidden" id="hero-title">
+                        THE EVOLUTION<br>OF COMBAT
+                    </h1>
+                    
+                    <div class="flex gap-6 mt-16 max-w-lg gsap-hidden" id="hero-text-block">
+                        <div class="w-1.5 bg-white h-40 shrink-0" id="hero-line"></div>
+                        <div class="long-text text-xl md:text-2xl leading-relaxed font-medium text-neutral-300">
+                            We are a species uniquely defined by the paradox of our creation: our most breathtaking technological leaps are invariably birthed in the fiery crucible of destruction. For millennia, the grim necessity of conflict has pushed the absolute limits of human ingenuity. The sharpened stone yielded to the rifled barrel, the thundering horse to the roaring jet turbine, and the muddy trench to the sterile glow of the stratosphere. This is not merely a history of violence—it is the tragic, awe-inspiring chronicle of our relentless adaptation to power.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="lg:col-span-4 hidden lg:block gsap-hidden" id="hero-box">
+                    <div class="bg-black border border-white p-12 rounded-3xl shadow-[0_20px_50px_rgba(255,255,255,0.05)] long-text text-2xl leading-relaxed text-white font-serif italic">
+                        "War is the ultimate, uncompromising catalyst. It shatters empires into dust, violently redraws the maps of the world, and whispers the dark secrets of tomorrow into the ears of engineers. The battlefield remains the harshest proving ground for our most terrifying brilliance."
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="history" class="bg-white text-black py-32">
+        <div class="max-w-7xl mx-auto px-8">
+            <div class="text-center mb-24" data-aos="fade-up">
+                <h2 class="section-header text-black">THE PATH TO MODERNITY</h2>
+                <p class="max-w-4xl mx-auto mt-8 text-xl md:text-2xl leading-relaxed text-neutral-600 long-text">
+                    To trace the sprawling lineage of warfare is to map the long shadow of human progress. Every passing era demands a radically new doctrine; every leap in science births a terrifying new marvel. The evolution of weaponry is essentially the evolution of applied physics, chemistry, and eventually, mathematics. We journeyed from mastering the heat of the forge to harnessing the explosive expansion of gases, splitting the fundamental atom, and finally, bending the invisible electromagnetic spectrum to our will.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="timeline-box bg-neutral-100 border border-black/10 p-10 rounded-3xl" data-aos="fade-up" data-aos-delay="100">
+                    <div class="uppercase text-xs font-bold tracking-widest mb-4 text-neutral-500">PHASE 01</div>
+                    <div class="text-2xl font-bold mb-6 logo-font text-black">METALLURGY & KINETICS</div>
+                    <div class="text-neutral-600 text-lg leading-relaxed long-text">
+                        In the brutal dawn of civilization, the battlefield was a visceral theater dictated entirely by muscle, gravity, and the rudimentary mastery of earth's raw metals. The serendipitous discovery of bronze, and later the unforgiving temper of iron, allowed nascent empires to forge implements of slaughter that would not shatter against bone or wooden shield.
+                        <br><br><span class="font-bold text-black italic">Examples abound in antiquity:</span> The disciplined, impenetrable bronze-clad phalanxes of Alexander the Great or the devastating iron <i>gladius</i> wielded by the Roman legions.
+                    </div>
+                </div>
+                
+                <div class="timeline-box bg-neutral-100 border border-black/10 p-10 rounded-3xl" data-aos="fade-up" data-aos-delay="200">
+                    <div class="uppercase text-xs font-bold tracking-widest mb-4 text-neutral-500">PHASE 02</div>
+                    <div class="text-2xl font-bold mb-6 logo-font text-black">CHEMISTRY & COMBUSTION</div>
+                    <div class="text-neutral-600 text-lg leading-relaxed long-text">
+                        The alchemical discovery of black powder fundamentally shattered the ancient world order, instantly rendering the towering stone castle and the plate-armored knight utterly obsolete. As the Industrial Revolution blackened the skies, it birthed the internal combustion engine, ruthlessly mechanizing the art of slaughter.
+                        <br><br><span class="font-bold text-black italic">Historical Catalysts:</span> Behold the catastrophic bombard siege artillery of the Ottomans in 1453, or the mechanized horrors of the Somme in World War I.
+                    </div>
+                </div>
+                
+                <div class="timeline-box bg-neutral-100 border border-black/10 p-10 rounded-3xl" data-aos="fade-up" data-aos-delay="300">
+                    <div class="uppercase text-xs font-bold tracking-widest mb-4 text-neutral-500">PHASE 03</div>
+                    <div class="text-2xl font-bold mb-6 logo-font text-black">THE ATOMIC AGE</div>
+                    <div class="text-neutral-600 text-lg leading-relaxed long-text">
+                        By forcibly splitting the fundamental building blocks of the universe, humanity ascended to a terrifying plateau of godlike destructive capability. War shifted drastically from territorial conquest to the chilling calculus of psychological deterrence.
+                        <br><br><span class="font-bold text-black italic">The Paradigm Shift:</span> The grim spectacles of Hiroshima and Nagasaki served as the apocalyptic overture, leading directly to the tense brinkmanship of the Cold War and its arsenals of ICBMs.
+                    </div>
+                </div>
+                
+                <div class="timeline-box bg-neutral-100 border border-black/10 p-10 rounded-3xl" data-aos="fade-up" data-aos-delay="400">
+                    <div class="uppercase text-xs font-bold tracking-widest mb-4 text-neutral-500">PHASE 04</div>
+                    <div class="text-2xl font-bold mb-6 logo-font text-black">SILICON & INFORMATION</div>
+                    <div class="text-neutral-600 text-lg leading-relaxed long-text">
+                        The advent of the microprocessor heralded an era where combat supremacy relies no longer solely on raw, explosive yield, but on omniscient data fusion and unparalleled algorithmic precision. Constellations of unblinking satellites watch from the freezing void of orbit.
+                        <br><br><span class="font-bold text-black italic">Modern Execution:</span> We witness this shift in the pinpoint GPS-guided JDAM strikes of the Gulf War, and the deployment of AI-driven drone swarms.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="land" class="py-32 bg-black">
+        <div class="max-w-7xl mx-auto px-8">
+            <div data-aos="fade-right">
+                <h2 class="section-header text-white">LAND FORCES</h2>
+                <div class="max-w-4xl mt-8 text-xl md:text-2xl leading-relaxed text-neutral-400 long-text">
+                    No matter how high we dare to fly, or how deep into the lightless abyss we dive, humanity remains inevitably, inextricably bound to the earth. Land warfare has evolved from the slow march of infantry squares to a highly mobile, networked battlefield. Today, the ultimate arbitration of sovereignty is still determined by exhausted boots sinking into the mud, backed by heavily armored behemoths that relentlessly, violently claim the dirt.
+                </div>
+            </div>
+
+            <div class="mt-24">
+                <h3 class="text-3xl md:text-4xl font-bold mb-12 text-center logo-font text-white" data-aos="fade-up">The Ground Crucible</h3>
+                <div class="evolution-grid">
+                    <div class="timeline-box bg-[#111] border border-white/10 p-10 rounded-3xl text-white" data-aos="flip-left" data-aos-delay="0">
+                        <div class="uppercase text-xs font-bold tracking-widest mb-4 text-neutral-400">ANCIENT - MEDIEVAL</div>
+                        <div class="text-2xl font-bold mb-6">Infantry & Cavalry Era</div>
+                        <div class="text-neutral-400 text-lg leading-relaxed long-text">The grand era of sweeping, continent-spanning conquests, where legendary empires rose and crumbled into ash solely on the backs of exhausted warhorses and disciplined formations.</div>
+                    </div>
+                    <div class="timeline-box bg-[#111] border border-white/10 p-10 rounded-3xl text-white" data-aos="flip-left" data-aos-delay="100">
+                        <div class="uppercase text-xs font-bold tracking-widest mb-4 text-neutral-400">INDUSTRIAL AGE</div>
+                        <div class="text-2xl font-bold mb-6">Trench & Early Mechanization</div>
+                        <div class="text-neutral-400 text-lg leading-relaxed long-text">The brutal efficiency of the machine gun and miles of jagged barbed wire turned open, pastoral fields into churning, muddy meat grinders of brutal, inescapable stalemate.</div>
+                    </div>
+                    <div class="timeline-box bg-[#111] border border-white/10 p-10 rounded-3xl text-white" data-aos="flip-left" data-aos-delay="200">
+                        <div class="uppercase text-xs font-bold tracking-widest mb-4 text-neutral-400">WORLD WARS</div>
+                        <div class="text-2xl font-bold mb-6">Tank & Motorized Warfare</div>
+                        <div class="text-neutral-400 text-lg leading-relaxed long-text">The internal combustion engine unleashed the terrifying speed of the blitzkrieg. Heavy armor fundamentally rewrote the ancient rules of mobility, distance, and shock action.</div>
+                    </div>
+                    <div class="timeline-box bg-[#111] border border-white/10 p-10 rounded-3xl text-white" data-aos="flip-left" data-aos-delay="300">
+                        <div class="uppercase text-xs font-bold tracking-widest mb-4 text-neutral-400">DIGITAL AGE</div>
+                        <div class="text-2xl font-bold mb-6">Network-Centric Warfare</div>
+                        <div class="text-neutral-400 text-lg leading-relaxed long-text">The modern gladiator is cloaked in a web of invisible sensors and backed by omniscient orbital intelligence, navigating a battlefield that calculates death as fast as a trigger can be pulled.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-32 space-y-24 relative">
+                <div class="vertical-line hidden xl:block"></div>
+
+                <script>
+                    const landWeapons = [
+                        { name: "Panther KF51 Main Battle Tank", origin: "Germany", year: "2022", desc: "An apex predator of the modern battlefield, discarding the bloated mass of yesteryear for hyper-lethal algorithmic targeting and an autoloading 130mm cannon that reduces advanced enemy armor to smoldering kinetic ruin.", imgUrl: "1.jpg" },
+                        { name: "T-14 Armata", origin: "Russia", year: "2015", desc: "A radical departure from conventional armored doctrine, featuring a completely unmanned turret and an impenetrable armored capsule that preserves the human operators while unleashing devastating automated fury.", imgUrl: "2.jpg" },
+                        { name: "M142 HIMARS Rocket Artillery", origin: "United States", year: "2010", desc: "The wrath of the modern gods, delivered from miles beyond the horizon. A mobile, fleeting maestro of destruction that rains pinpoint precision and explosive chaos upon the heads of the unsuspecting, turning grid coordinates into craters.", imgUrl: "3.jpg" },
+                        { name: "Lynx KF41 Infantry Fighting Vehicle", origin: "Germany", year: "2018", desc: "A highly modular, mechanized vanguard designed to seamlessly ferry combat-hardened operatives through the deafening tempest of modern warfare while providing devastating kinetic overwatch.", imgUrl: "4.jpg" },
+                        { name: "Iron Beam Directed Energy Weapon", origin: "Israel", year: "2024", desc: "A blinding flash of directed energy that literally burns incoming mortar shells and autonomous drones out of the sky at the speed of light, representing the absolute frontier of silent, infinite-magazine air defense.", imgUrl: "5.jpg" }
+                    ];
+                    
+                    landWeapons.forEach((weapon, index) => {
+                        let num = (index + 1).toString().padStart(2, '0');
+                        let flexDir = index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"; 
+                        let fadeDir = index % 2 === 0 ? "fade-right" : "fade-left"; 
+                        
+                        document.write(`
+                            <div class="weapon-slide bg-[#111] border border-white/10 rounded-3xl p-8 lg:p-12 relative z-10 group" data-aos="${fadeDir}">
+                                <div class="flex flex-col ${flexDir} gap-8 lg:gap-12 lg:items-center">
+                                    <div class="flex-1 w-full">
+                                        <div class="inline-flex items-center bg-white text-black text-xs font-bold tracking-widest px-6 py-2 mb-8 rounded-full">
+                                            WEAPON #${num}
+                                        </div>
+                                        <h3 class="text-4xl lg:text-5xl font-black leading-tight logo-font text-white">${weapon.name}</h3>
+                                        
+                                        <div class="flex flex-col gap-1 mt-6 mb-6 border-l-2 border-red-600 pl-4 py-1">
+                                            <span class="text-sm font-bold tracking-widest text-neutral-300 uppercase">ORIGIN: ${weapon.origin}</span>
+                                            <span class="text-sm font-bold tracking-widest text-neutral-500 uppercase">FIRST INTRODUCED: ${weapon.year}</span>
+                                        </div>
+
+                                        <div class="mt-4 long-text text-xl leading-relaxed text-neutral-400">
+                                            ${weapon.desc}
+                                        </div>
+                                    </div>
+                                    <div class="hidden lg:block w-px bg-white/20 self-stretch min-h-[250px] opacity-30"></div>
+                                    <div class="w-full lg:w-[400px] xl:w-[480px] flex-shrink-0 relative overflow-hidden rounded-2xl shadow-lg" data-aos="zoom-in" data-aos-delay="200">
+                                        <img src="${weapon.imgUrl}" 
+                                             alt="${weapon.name}" 
+                                             class="aspect-video w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110 bg-neutral-800">
+                                        <div class="absolute inset-0 border-2 border-transparent group-hover:border-white/30 transition-all duration-500 rounded-2xl pointer-events-none"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        `);
+                    });
+                </script>
+            </div>
+        </div>
+    </section>
+
+    <section id="navy" class="py-32 bg-[#1a1a1a]">
+        <div class="max-w-7xl mx-auto px-8">
+            <div data-aos="fade-right">
+                <h2 class="section-header text-white">NAVY FORCES</h2>
+                <div class="max-w-4xl mt-8 text-xl md:text-2xl leading-relaxed text-neutral-400 long-text">
+                    The oceans are the vast, untamed, and unforgiving highways of the globe. For centuries, maritime combat was constrained by the unpredictable whims of the wind. To command the turbulent sea today is to hold the very arteries of world trade by the throat, possessing the godlike, undeniable ability to project overwhelming, catastrophic might to any distant, unsuspecting shore on Earth.
+                </div>
+            </div>
+
+            <div class="mt-24">
+                <h3 class="text-3xl md:text-4xl font-bold mb-12 text-center logo-font text-white" data-aos="fade-up">The Dominion of the Deep</h3>
+                <div class="evolution-grid">
+                    <div class="timeline-box bg-[#222] border border-white/10 p-10 rounded-3xl text-white" data-aos="flip-left" data-aos-delay="0">
+                        <div class="uppercase text-xs font-bold tracking-widest mb-4 text-neutral-400">AGE OF SAIL</div>
+                        <div class="text-2xl font-bold mb-6">Wooden Ships & Cannon</div>
+                        <div class="text-neutral-400 text-lg leading-relaxed long-text">Majestic, towering galleons dancing perilous ballets at the absolute mercy of the wind, only to deliver point-blank broadsides of deafening, wood-splintering iron across churning waves.</div>
+                    </div>
+                    <div class="timeline-box bg-[#222] border border-white/10 p-10 rounded-3xl text-white" data-aos="flip-left" data-aos-delay="100">
+                        <div class="uppercase text-xs font-bold tracking-widest mb-4 text-neutral-400">IRONCLAD ERA</div>
+                        <div class="text-2xl font-bold mb-6">Steam & Steel Battleships</div>
+                        <div class="text-neutral-400 text-lg leading-relaxed long-text">The romantic age of sail burned away violently in the roaring furnaces of steam propulsion, replacing elegant timber with thick, impenetrable steel plating and massive turreted guns.</div>
+                    </div>
+                    <div class="timeline-box bg-[#222] border border-white/10 p-10 rounded-3xl text-white" data-aos="flip-left" data-aos-delay="200">
+                        <div class="uppercase text-xs font-bold tracking-widest mb-4 text-neutral-400">WORLD WARS</div>
+                        <div class="text-2xl font-bold mb-6">Carrier & Submarine Age</div>
+                        <div class="text-neutral-400 text-lg leading-relaxed long-text">Floating leviathans clashed in titanic surface duels, while deep below the sunlit zone, silent, pressure-crushed predators redefined the deadly art of unseen maritime ambush.</div>
+                    </div>
+                    <div class="timeline-box bg-[#222] border border-white/10 p-10 rounded-3xl text-white" data-aos="flip-left" data-aos-delay="300">
+                        <div class="uppercase text-xs font-bold tracking-widest mb-4 text-neutral-400">MODERN ERA</div>
+                        <div class="text-2xl font-bold mb-6">Stealth & Networked Fleets</div>
+                        <div class="text-neutral-400 text-lg leading-relaxed long-text">Sprawling, floating cities of sovereign power, seamlessly projecting air dominance and impenetrable missile defense across thousands of miles of open water without firing a visual-range shot.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-32 space-y-24 relative">
+                <div class="vertical-line hidden xl:block"></div>
+
+                <script>
+                    const navyWeapons = [
+                        { name: "Gerald R. Ford-Class Carrier", origin: "United States", year: "2017", desc: "A colossal, floating island of nuclear-powered diplomacy. It carries an entire, devastating air force upon its flat back, effortlessly projecting imperial power and the threat of total ruin to the furthest, most hostile reaches of the globe.", imgUrl: "6.jpg" },
+                        { name: "Zumwalt-Class Destroyer", origin: "United States", year: "2016", desc: "A towering marvel of maritime stealth, its knife-like, tumblehome hull slicing effortlessly through radar waves and churning oceans alike to project overwhelming, pinpoint electromagnetic dominance.", imgUrl: "7.jpg" },
+                        { name: "Type 055 Destroyer", origin: "China", year: "2020", desc: "A heavily armed titan of the eastern seas, bristling with advanced vertical launch cells and dual-band radar arrays that orchestrate an impenetrable dome of multi-layered naval supremacy.", imgUrl: "8.jpg" },
+                        { name: "Columbia-Class Ballistic Submarine", origin: "United States", year: "2031 (Planned)", desc: "The ultimate, chilling guarantor of human survival. A billion-dollar ghost ship hiding in the darkest oceanic trenches, carrying within its hull the apocalyptic fire of strategic nuclear deterrence.", imgUrl: "9.jpg" }
+                    ];
+
+                    navyWeapons.forEach((weapon, index) => {
+                        let num = (index + 6).toString().padStart(2, '0');
+                        let flexDir = index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse";
+                        let fadeDir = index % 2 === 0 ? "fade-right" : "fade-left";
+                        
+                        document.write(`
+                            <div class="weapon-slide bg-[#222] border border-white/10 rounded-3xl p-8 lg:p-12 relative z-10 group" data-aos="${fadeDir}">
+                                <div class="flex flex-col ${flexDir} gap-8 lg:gap-12 lg:items-center">
+                                    <div class="flex-1 w-full">
+                                        <div class="inline-flex items-center bg-white text-black text-xs font-bold tracking-widest px-6 py-2 mb-8 rounded-full">
+                                            WEAPON #${num}
+                                        </div>
+                                        <h3 class="text-4xl lg:text-5xl font-black leading-tight logo-font text-white">${weapon.name}</h3>
+                                        
+                                        <div class="flex flex-col gap-1 mt-6 mb-6 border-l-2 border-red-600 pl-4 py-1">
+                                            <span class="text-sm font-bold tracking-widest text-neutral-300 uppercase">ORIGIN: ${weapon.origin}</span>
+                                            <span class="text-sm font-bold tracking-widest text-neutral-500 uppercase">FIRST INTRODUCED: ${weapon.year}</span>
+                                        </div>
+
+                                        <div class="mt-4 long-text text-xl leading-relaxed text-neutral-400">
+                                            ${weapon.desc}
+                                        </div>
+                                    </div>
+                                    <div class="hidden lg:block w-px bg-white/20 self-stretch min-h-[250px] opacity-30"></div>
+                                    <div class="w-full lg:w-[400px] xl:w-[480px] flex-shrink-0 relative overflow-hidden rounded-2xl shadow-lg" data-aos="zoom-in" data-aos-delay="200">
+                                        <img src="${weapon.imgUrl}" 
+                                             alt="${weapon.name}" 
+                                             class="aspect-video w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110 bg-neutral-800">
+                                        <div class="absolute inset-0 border-2 border-transparent group-hover:border-white/30 transition-all duration-500 rounded-2xl pointer-events-none"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        `);
+                    });
+                </script>
+            </div>
+        </div>
+    </section>
+
+    <section id="airforce" class="py-32 bg-black">
+        <div class="max-w-7xl mx-auto px-8">
+            <div data-aos="fade-right">
+                <h2 class="section-header text-white">AIRFORCE</h2>
+                <div class="max-w-4xl mt-8 text-xl md:text-2xl leading-relaxed text-neutral-400 long-text">
+                    When humanity finally broke the surly bonds of gravity and conquered the skies, the battlefield expanded instantly into the infinite third dimension. The transition from canvas-winged biplanes to jet propulsion was remarkably swift, driven entirely by the desperate needs of the Second World War. Today, air power is the ultimate, terrifying expression of reach, blinding speed, and the undeniable psychological terror of a devastating threat that cannot be seen until the payload has already struck.
+                </div>
+            </div>
+
+            <div class="mt-24">
+                <h3 class="text-3xl md:text-4xl font-bold mb-12 text-center logo-font text-white" data-aos="fade-up">The Conquest of the Stratosphere</h3>
+                <div class="evolution-grid">
+                    <div class="timeline-box bg-[#111] border border-white/10 p-10 rounded-3xl text-white" data-aos="flip-left" data-aos-delay="0">
+                        <div class="uppercase text-xs font-bold tracking-widest mb-4 text-neutral-400">EARLY FLIGHT</div>
+                        <div class="text-2xl font-bold mb-6">Biplanes & Recon</div>
+                        <div class="text-neutral-400 text-lg leading-relaxed long-text">Fragile, combustible constructs of taut canvas and humming wire, flown by chivalrous modern knights who fought noble, deadly, and deeply personal duels high above the trenches.</div>
+                    </div>
+                    <div class="timeline-box bg-[#111] border border-white/10 p-10 rounded-3xl text-white" data-aos="flip-left" data-aos-delay="100">
+                        <div class="uppercase text-xs font-bold tracking-widest mb-4 text-neutral-400">WORLD WAR II</div>
+                        <div class="text-2xl font-bold mb-6">Jets & Strategic Bombing</div>
+                        <div class="text-neutral-400 text-lg leading-relaxed long-text">The skies darkened entirely with the endless drone of heavy bombers erasing cities, while the very first jets tore through the heavens, forever changing aerial combat.</div>
+                    </div>
+                    <div class="timeline-box bg-[#111] border border-white/10 p-10 rounded-3xl text-white" data-aos="flip-left" data-aos-delay="200">
+                        <div class="uppercase text-xs font-bold tracking-widest mb-4 text-neutral-400">COLD WAR</div>
+                        <div class="text-2xl font-bold mb-6">Supersonic & Stealth</div>
+                        <div class="text-neutral-400 text-lg leading-relaxed long-text">A high-stakes chess match of supersonic interceptors and radar-evading strategic bombers, perpetually poised on the razor's edge of triggering global thermonuclear annihilation.</div>
+                    </div>
+                    <div class="timeline-box bg-[#111] border border-white/10 p-10 rounded-3xl text-white" data-aos="flip-left" data-aos-delay="300">
+                        <div class="uppercase text-xs font-bold tracking-widest mb-4 text-neutral-400">21ST CENTURY</div>
+                        <div class="text-2xl font-bold mb-6">Drone Swarms & Hypersonic</div>
+                        <div class="text-neutral-400 text-lg leading-relaxed long-text">An unforgiving era where total dominance is defined not merely by sheer engine thrust, but by absolute invisibility, massive data fusion, and autonomous systems.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-32 space-y-24 relative">
+                <div class="vertical-line hidden xl:block"></div>
+
+                <script>
+                    const airWeapons = [
+                        { name: "F-35 Lightning II", origin: "United States", year: "2015", desc: "A flying, supersonic supercomputer cloaked in advanced stealth. It masterfully orchestrates the entire battlefield, processing millions of variables a second while remaining utterly invisible to its prey.", imgUrl: "10.jpg" },
+                        { name: "B-2 Spirit Stealth Bomber", origin: "United States", year: "1997", desc: "A bat-winged specter of the night. It slips silently through complex radar networks, carrying the world-ending weight of global strike capabilities directly to the doorstep of the enemy.", imgUrl: "11.jpg" },
+                        { name: "Chengdu 6th-Gen 'White Emperor'", origin: "China", year: "In Development", desc: "A tailless, diamond-double-delta stealth marvel representing a sheer, ambitious leap into sixth-generation cognitive warfare. Conceived as an uncatchable command hub designed to seamlessly coordinate autonomous drone swarms while maintaining absolute radar invisibility.", imgUrl: "12.jpg" },
+                        { name: "Su-57 Felon", origin: "Russia", year: "2020", desc: "A brutally agile, fifth-generation apex predator built for thrust-vectoring supremacy. It blends radar-evading geometry with hyper-maneuverable aerodynamics to violently dismantle adversaries in the contested skies.", imgUrl: "13.jpg" },
+                        { name: "XQ-58 Valkyrie", origin: "United States", year: "2019", desc: "An autonomous, algorithmic wingman forged to accompany human aces into the deadliest airspace on Earth. It acts as a disposable, highly lethal force multiplier, flawlessly executing algorithmic strike coordination without the fragility of flesh.", imgUrl: "14.jpg" },
+                        { name: "Bayraktar TB2 Drone", origin: "Turkey", year: "2014", desc: "The undisputed catalyst of modern asymmetric warfare. A highly resilient, low-cost autonomous predator that loiters silently for days, radically shifting the balance of power by dismantling billion-dollar armor with chilling, cost-effective precision.", imgUrl: "15.jpg" }
+                    ];
+
+                    airWeapons.forEach((weapon, index) => {
+                        let num = (index + 10).toString().padStart(2, '0');
+                        let flexDir = index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse";
+                        let fadeDir = index % 2 === 0 ? "fade-right" : "fade-left";
+                        
+                        document.write(`
+                            <div class="weapon-slide bg-[#111] border border-white/10 rounded-3xl p-8 lg:p-12 relative z-10 group" data-aos="${fadeDir}">
+                                <div class="flex flex-col ${flexDir} gap-8 lg:gap-12 lg:items-center">
+                                    <div class="flex-1 w-full">
+                                        <div class="inline-flex items-center bg-white text-black text-xs font-bold tracking-widest px-6 py-2 mb-8 rounded-full">
+                                            WEAPON #${num}
+                                        </div>
+                                        <h3 class="text-4xl lg:text-5xl font-black leading-tight logo-font text-white">${weapon.name}</h3>
+                                        
+                                        <div class="flex flex-col gap-1 mt-6 mb-6 border-l-2 border-red-600 pl-4 py-1">
+                                            <span class="text-sm font-bold tracking-widest text-neutral-300 uppercase">ORIGIN: ${weapon.origin}</span>
+                                            <span class="text-sm font-bold tracking-widest text-neutral-500 uppercase">FIRST INTRODUCED: ${weapon.year}</span>
+                                        </div>
+
+                                        <div class="mt-4 long-text text-xl leading-relaxed text-neutral-400">
+                                            ${weapon.desc}
+                                        </div>
+                                    </div>
+                                    <div class="hidden lg:block w-px bg-white/20 self-stretch min-h-[250px] opacity-30"></div>
+                                    <div class="w-full lg:w-[400px] xl:w-[480px] flex-shrink-0 relative overflow-hidden rounded-2xl shadow-lg" data-aos="zoom-in" data-aos-delay="200">
+                                        <img src="${weapon.imgUrl}" 
+                                             alt="${weapon.name}" 
+                                             class="aspect-video w-full h-full object-cover transform transition-transform duration-700 group-hover:scale-110 bg-neutral-800">
+                                        <div class="absolute inset-0 border-2 border-transparent group-hover:border-white/30 transition-all duration-500 rounded-2xl pointer-events-none"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        `);
+                    });
+                </script>
+            </div>
+        </div>
+    </section>
+
+    <section id="cyber" class="min-h-screen bg-white text-black py-32 relative overflow-hidden flex flex-col justify-center border-b-[20px] border-black">
+        <div class="absolute inset-0 opacity-[0.04] pointer-events-none" style="background-image: linear-gradient(black 1px, transparent 1px), linear-gradient(90deg, black 1px, transparent 1px); background-size: 50px 50px;"></div>
+        
+        <div class="absolute left-0 w-full h-[3px] bg-red-600 shadow-[0_0_20px_rgba(220,38,38,1)] z-0 pointer-events-none animate-scanner"></div>
+
+        <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+            <div class="absolute top-[15%] left-[5%] md:left-[15%] animate-drone-1 opacity-20">
+                <svg width="100" height="100" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="1.5" class="drop-shadow-2xl">
+                    <path d="M12 2v4M12 18v4M2 12h4M18 12h4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                    <circle cx="12" cy="12" r="3" fill="#dc2626" stroke="none" class="animate-pulse"/>
+                    <circle cx="4.5" cy="4.5" r="2.5"/><circle cx="19.5" cy="4.5" r="2.5"/><circle cx="4.5" cy="19.5" r="2.5"/><circle cx="19.5" cy="19.5" r="2.5"/>
+                </svg>
+            </div>
+            <div class="absolute bottom-[10%] right-[5%] md:right-[15%] animate-drone-2 opacity-[0.25]">
+                <svg width="140" height="140" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="1.5" class="drop-shadow-2xl">
+                    <path d="M12 2v4M12 18v4M2 12h4M18 12h4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                    <circle cx="12" cy="12" r="3" fill="#dc2626" stroke="none" class="animate-pulse"/>
+                    <circle cx="4.5" cy="4.5" r="2.5"/><circle cx="19.5" cy="4.5" r="2.5"/><circle cx="4.5" cy="19.5" r="2.5"/><circle cx="19.5" cy="19.5" r="2.5"/>
+                </svg>
+            </div>
+            <div class="absolute top-[40%] right-[30%] animate-drone-3 opacity-10 hidden md:block">
+                <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="black" stroke-width="1.5">
+                    <path d="M12 2v4M12 18v4M2 12h4M18 12h4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
+                    <circle cx="12" cy="12" r="3" fill="#dc2626" stroke="none"/>
+                    <circle cx="4.5" cy="4.5" r="2.5"/><circle cx="19.5" cy="4.5" r="2.5"/><circle cx="4.5" cy="19.5" r="2.5"/><circle cx="19.5" cy="19.5" r="2.5"/>
+                </svg>
+            </div>
+        </div>
+        
+        <div class="max-w-7xl mx-auto px-8 relative z-10">
+            <div class="text-center mb-24" data-aos="zoom-in" data-aos-duration="1200">
+                <h2 class="section-header text-black tracking-[-6px] text-7xl md:text-9xl mb-8 relative inline-block">
+                    CYBER
+                    <i class="fa-solid fa-crosshairs absolute -right-16 top-0 text-red-600 text-4xl animate-pulse"></i>
+                </h2>
+                <div class="max-w-5xl mx-auto text-2xl md:text-3xl leading-relaxed text-neutral-700 long-text font-serif italic">
+                    "The newest front is everywhere and nowhere. It possesses no muddy trenches, no crashing oceans, and no contested airspace—only the endless, silent expanse of networks and code. Here, devastating wars are waged and won in milliseconds."
+                </div>
+                <p class="max-w-4xl mx-auto mt-8 text-xl leading-relaxed text-neutral-600 long-text">
+                    Nations are paralyzed not by the screeching descent of falling bombs, but by malicious keystrokes executed in dark rooms half a world away. This evolution stems directly from society's absolute dependence on the microchip and internet connectivity. It is an invisible, bloodless theater where objective truth, critical infrastructure, and the very fabric of human society serve as the ultimate, entirely unprotected targets.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16">
+                <div class="timeline-box bg-black text-white p-10 rounded-3xl shadow-2xl relative overflow-hidden group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="absolute inset-0 bg-gradient-to-br from-red-900/40 to-black opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="relative z-10">
+                        <div class="uppercase text-xs font-bold tracking-widest mb-4 text-red-500">DOMAIN 01</div>
+                        <div class="text-3xl font-black mb-6 logo-font text-white">THE UNMANNED SWARM</div>
+                        <div class="text-neutral-400 text-lg leading-relaxed long-text">
+                            The sky is no longer ruled by solitary human aces, but by terrifying hive minds driven by onboard microprocessors. A mechanical locust plague of autonomous drones, capable of shifting attack formations at the speed of thought, dismantling complex targets with the cold, unfeeling precision of a mathematical equation. It is the democratization of air power, where sheer numbers and algorithmic coordination overwhelm the most sophisticated, expensive defenses.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-box bg-black text-white p-10 rounded-3xl shadow-2xl relative overflow-hidden group" data-aos="fade-up" data-aos-delay="200">
+                    <div class="absolute inset-0 bg-gradient-to-br from-red-900/40 to-black opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="relative z-10">
+                        <div class="uppercase text-xs font-bold tracking-widest mb-4 text-red-500">DOMAIN 02</div>
+                        <div class="text-3xl font-black mb-6 logo-font text-white">THE DIGITAL SIEGE</div>
+                        <div class="text-neutral-400 text-lg leading-relaxed long-text">
+                            The modern fortress wall is not built of stone, but of complex cryptography. In the silent expanse of the digital ether, invisible armies of zero-day exploits clash in nanoseconds. They do not seek to kill the flesh; they seek to paralyze the state. With a single, well-placed command payload, they can extinguish power grids, erase sovereign wealth, and plunge heavily populated modern cities into a sudden, chaotic dark.
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-box bg-black text-white p-10 rounded-3xl shadow-2xl relative overflow-hidden group" data-aos="fade-up" data-aos-delay="300">
+                    <div class="absolute inset-0 bg-gradient-to-br from-red-900/40 to-black opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                    <div class="relative z-10">
+                        <div class="uppercase text-xs font-bold tracking-widest mb-4 text-red-500">DOMAIN 03</div>
+                        <div class="text-3xl font-black mb-6 logo-font text-white">COGNITIVE WARFARE</div>
+                        <div class="text-neutral-400 text-lg leading-relaxed long-text">
+                            In this arena, objective truth itself has become the first casualty. Weaponized algorithms, hyper-realistic fabrications, and psychological deepfakes intentionally flood social networks, rewriting reality in real-time. This is the ultimate, insidious infiltration: a war fought not for physical territory or natural resources, but to conquer the very perception, trust, and soul of the civilian populace from within.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-32 pt-24 border-t border-black/10" data-aos="fade-up">
+                <h3 class="text-3xl md:text-5xl font-black mb-16 text-center logo-font text-black tracking-tighter">CONTEMPORARY THEATERS</h3>
+                
+                <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                    <div class="bg-black border border-neutral-800 p-8 md:p-10 rounded-3xl shadow-2xl relative overflow-hidden group text-white">
+                        <div class="absolute inset-0 bg-gradient-to-br from-red-900/30 to-black opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <div class="relative z-10">
+                            <i class="fa-solid fa-satellite-dish text-4xl text-red-500 mb-6"></i>
+                            <h4 class="text-2xl font-bold mb-4 logo-font text-white">THE UKRAINIAN PROVING GROUND</h4>
+                            <p class="text-neutral-400 text-lg leading-relaxed long-text">
+                                The ongoing conflict has fundamentally rewritten modern military doctrine. It serves as the first full-scale theater where low-cost, commercial First-Person View (FPV) drones and autonomous naval surface vehicles (USVs) are systematically defeating traditional armor and expensive naval fleets. The battlefield has become an open-source testing ground for rapid iterative innovation, proving that high volume and agility can overwhelm conventional, multi-billion-dollar military might.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-black border border-neutral-800 p-8 md:p-10 rounded-3xl shadow-2xl relative overflow-hidden group text-white">
+                        <div class="absolute inset-0 bg-gradient-to-br from-red-900/30 to-black opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <div class="relative z-10">
+                            <i class="fa-solid fa-user-ninja text-4xl text-red-500 mb-6"></i>
+                            <h4 class="text-2xl font-bold mb-4 logo-font text-white">STATE-SPONSORED DIGITAL HEISTS</h4>
+                            <p class="text-neutral-400 text-lg leading-relaxed long-text">
+                                In the shadows of the cyber realm, state-sponsored actors like North Korea's infamous Lazarus Group (APT38) operate to generate illicit revenue. Bypassing global sanctions, these sophisticated hackers have orchestrated billion-dollar cryptocurrency heists and global ransomware campaigns. These digital bank robberies directly fund the state's nuclear and ballistic missile programs, turning the internet into an asymmetrical funding apparatus for weapons of mass destruction.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="bg-black border border-neutral-800 p-8 md:p-10 rounded-3xl shadow-2xl relative overflow-hidden group text-white">
+                        <div class="absolute inset-0 bg-gradient-to-br from-red-900/30 to-black opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                        <div class="relative z-10">
+                            <i class="fa-solid fa-microchip text-4xl text-red-500 mb-6"></i>
+                            <h4 class="text-2xl font-bold mb-4 logo-font text-white">ALGORITHMIC TARGETING</h4>
+                            <p class="text-neutral-400 text-lg leading-relaxed long-text">
+                                The rise of AI-assisted target generation systems marks a chilling, unprecedented milestone in modern combat. Complex algorithms now process vast arrays of surveillance data, intercepted communications, and geospatial intelligence in mere seconds to automatically recommend strike targets. This shifts the heavy ethical burden of warfare from human calculation to machine learning, drastically compressing the "kill chain" and ushering in an era of hyper-accelerated combat.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+    <script>
+        // Initialize AOS
+        AOS.init({ duration: 900, once: true, offset: 100, easing: 'ease-out-cubic' });
+
+        // Initialize GSAP for spectacular Hero load animation
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll('.gsap-hidden').forEach(el => el.classList.remove('gsap-hidden'));
+            const tl = gsap.timeline();
+            tl.fromTo("#navbar", { y: -100, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: "power3.out" })
+              .fromTo("#hero-title", { y: 50, opacity: 0 }, { y: 0, opacity: 1, duration: 1, ease: "power3.out" }, "-=0.5")
+              .fromTo("#hero-line", { height: 0 }, { height: 180, duration: 0.8, ease: "power2.out" }, "-=0.5")
+              .fromTo("#hero-text-block .long-text", { x: -20, opacity: 0 }, { x: 0, opacity: 1, duration: 0.8, ease: "power2.out" }, "-=0.4")
+              .fromTo("#hero-box", { scale: 0.95, opacity: 0, x: 20 }, { scale: 1, opacity: 1, x: 0, duration: 1, ease: "back.out(1.2)" }, "-=0.8");
+        });
+
+        // Mobile Menu Toggle (Right side menu)
+        function toggleMobileMenu() {
+            document.getElementById('mobileMenu').classList.toggle('hidden');
+        }
+
+        // Left Sidebar Toggle (Left top hamburger)
+        function toggleLeftSidebar() {
+            const sidebar = document.getElementById('leftSidebar');
+            const overlay = document.getElementById('sidebarOverlay');
+            if (sidebar.classList.contains('-translate-x-full')) {
+                // Open sidebar
+                sidebar.classList.remove('-translate-x-full');
+                overlay.classList.remove('hidden');
+                setTimeout(() => overlay.classList.remove('opacity-0'), 10);
+            } else {
+                // Close sidebar
+                sidebar.classList.add('-translate-x-full');
+                overlay.classList.add('opacity-0');
+                setTimeout(() => overlay.classList.add('hidden'), 300);
+            }
+        }
+
+        // Smooth Scrolling for ALL anchors (Main Page + Sidebar)
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                if (this.getAttribute('href') !== '#') {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        window.scrollTo({ top: target.offsetTop - 80, behavior: 'smooth' });
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
