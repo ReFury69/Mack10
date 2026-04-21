@@ -12,7 +12,7 @@
         .logo-font { font-family: 'Space Grotesk', sans-serif; }
     </style>
 </head>
-<body class="bg-[#050505] text-white min-h-screen flex flex-col items-center pt-24 pb-12 px-8">
+<body class="bg-[#050505] text-white min-h-screen flex flex-col items-center justify-center pt-24 pb-12 px-8">
     
     <nav class="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-md border-b border-white/10">
         <div class="max-w-7xl mx-auto px-8 py-5 flex items-center">
@@ -22,24 +22,18 @@
         </div>
     </nav>
 
-    <div class="w-full max-w-5xl text-center flex flex-col items-center mt-8">
-        <h1 class="text-5xl md:text-7xl font-black logo-font mb-6 tracking-tighter">VIDEO ESSAY</h1>
-        <p class="text-lg md:text-xl text-neutral-400 leading-relaxed mb-10 max-w-3xl mx-auto">
+    <div class="max-w-4xl text-center">
+        <i class="fa-solid fa-film text-6xl mb-8 text-neutral-500"></i>
+        <h1 class="text-5xl md:text-7xl font-black logo-font mb-6 tracking-tighter uppercase">Video Essay</h1>
+        
+        <p class="text-xl text-neutral-400 leading-relaxed mb-8">
             Deep-dive cinematic analyses breaking down the tactical doctrines that shape our world.
         </p>
 
-        <div class="w-full bg-black/40 border border-white/10 rounded-2xl p-2 md:p-4 shadow-2xl mb-12">
-            <div class="relative w-full aspect-video overflow-hidden rounded-xl bg-[#111]">
-                
-                <iframe 
-                    class="absolute top-0 left-0 w-full h-full border-0" 
-                    src="https://www.youtube-nocookie.com/embed/aE9YeD5Fv3Q" 
-                    title="YouTube video player" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    allowfullscreen>
-                </iframe>
-                
-            </div>
+        <div class="mb-12">
+            <a href="https://www.youtube.com/watch?v=aE9YeD5Fv3Q" target="_blank" class="text-xl md:text-2xl font-bold text-white hover:text-neutral-400 underline decoration-neutral-600 underline-offset-8 transition-all">
+                WATCH VIDEO ON YOUTUBE <i class="fa-solid fa-arrow-up-right-from-square text-sm ml-2"></i>
+            </a>
         </div>
 
         <a href="index.html" class="inline-block border border-white px-8 py-4 font-bold text-sm tracking-widest hover:bg-white hover:text-black transition-colors">RETURN HOME</a>
